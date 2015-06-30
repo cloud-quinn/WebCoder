@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Questionnaire Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        updateCSS(bc2)
+    });
+</script>
+<h2>Thank you for completing the questionnaire!</h2>
+<p>You will be asked to complete another one before you finish the research.</p>
+<p>The next step is a coding tutorial which should take around 30 minutes. You cannot stop this once you have started, so please make sure you have enough time to spare before starting. After this, you will take a quick test.</p>
+<p>If you want to read the information about the research again, use the links at the top of the page.</p>
+<p>If you are ready to start the tutorial, click “Start”.</p>
+<div class="button-wrapper">
+    @Html.ActionLink("Start", "Loading", null, new { @class = "button" })
+</div>
+
+
+

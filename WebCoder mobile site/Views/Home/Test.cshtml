@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    $(document).ready(function () {
+        updateCSS(bc3);
+        toggleHTML();
+        populateHTML();
+        $("#submitTest").click(function (e) {
+           
+            updateHTML();
+            e.preventDefault();
+        });
+    });
+</script>
+
+<h2>Please use HTML and CSS code to...</h2>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <ol>
+                <li>Insert a heading that says “Welcome to my website”.</li>
+                <li>Insert a paragraph of text about yourself.</li>
+                <li>Insert an image of your choice.</li>
+                <li>Insert a hyperlink of your choice.</li>
+                <li>Make the heading blue.</li>
+                <li>Make the paragraph Arial font.</li>
+                <li>Position the image to the right of the text.</li>
+                <li>Add a 40px margin to the top of the hyperlink.</li>
+            </ol>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <button onclick="toggleHTML()" class="toggle-tab" id="toggle-HTML" type="button">HTML</button><button onclick="toggleCSS()" class="toggle-tab" id="toggle-CSS" type="button">CSS</button>
+            <textarea class="col-lg-12 col-md-12 col-sm-12 col-xs-12 codearea" rows="16" id="htmlCode"></textarea>
+            <textarea class="col-lg-12 col-md-12 col-sm-12 col-xs-12 codearea" rows="16" id="cssCode"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class=" col-md-5 button-wrapper">
+            <a id="submitTest" class="button" href="#">Submit Code</a>
+        </div>
+    </div>
+    <div class="col-md-5" id="htmlResult"></div>
+
+
+
+
+
+</div>

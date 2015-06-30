@@ -1,0 +1,15 @@
+﻿body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 2em 2em;
+}
+
+.likert {
+    padding: 1em 10em;
+}
+
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}

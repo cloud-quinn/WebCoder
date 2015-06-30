@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Comments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1>Questionnaire</h1>
+
+    @using (Html.BeginForm("Comments", "Home", FormMethod.Post, new { id = "formId", target = "_self" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="question">@ViewBag.questiontext</h2>
+            </div>
+        </div>
+        <div class="row likert">
+            <textarea id="comments" name="input" width="200" rows="8"></textarea>
+        </div>
+        <div class="row likert">
+            <div class="col-md-12">
+                <button id="questionnaireButton" type="submit">Next</button>
+            </div>
+        </div>
+    }
+</div>

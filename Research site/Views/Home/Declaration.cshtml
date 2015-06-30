@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Declaration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <h2>User Declaration: read carefully before clicking “I agree”</h2>
+    <p>I understand that the point of this research is to improve computer systems that are used to learn coding.</p>
+    <p>The system is being tested, but I am not, so I cannot perform “well” or “badly”. There is no advantage to cheating and, if I try to cheat in any way, the results will be useless.</p>
+    <p>I am choosing to take part in this research and can choose to stop at any time. I can choose not to take part, or to stop after starting, with no disadvantage.</p>
+    <p>I understand that taking part in this research will take about an hour.</p>
+    <p>I understand that I will be asked to answer some questions, do some website coding tasks, and take a short test.</p>
+    <p>I understand that I will be given one of two tutorial designs to use at random, and I cannot choose which tutorial design I use.</p>
+    <p>I have not studied HTML or CSS before.</p>
+    <p>I am 18 or over.</p>
+    <p>I have read and understood this declaration, and I agree to take part.</p>
+    <p>By clicking “I agree”, I create a digital signature and sign this agreement to take part in the research.</p>
+<div class="button-wrapper">
+    @Html.ActionLink("I agree", "StartResearch", null, new { @class = "button" })
+</div>

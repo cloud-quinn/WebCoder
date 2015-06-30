@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Questionnaire";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        updateCSS(bc1)
+    });
+</script>
+<div class="container-fluid">
+    <h1>Questionnaire</h1>
+
+    @using (Html.BeginForm("Survey1", "Home", FormMethod.Post, new { id = "formId", target = "_self" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <h3 id="question">@ViewBag.questiontext</h3>
+            </div>
+        </div>
+        <div class="row likert">
+            <input type="hidden" id="survNum" value="@ViewBag.survNum" name="survNum" />
+            <input type="hidden" id="questNum" value="@ViewBag.questNum" name="questNum" />
+            <input type="radio" name="input" value="1" required>&nbsp 1 &nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="input" value="2" required>&nbsp 2 &nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="input" value="3" required>&nbsp 3 &nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="input" value="4" required>&nbsp 4 &nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="input" value="5" required>&nbsp 5 &nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="input" value="6" required>&nbsp 6 &nbsp&nbsp&nbsp&nbsp
+            <input type="radio" name="input" value="7" required>&nbsp 7 
+
+        </div>
+        <div class="row likert">
+            <div class="col-md-6 left">
+                STRONGLY DISAGREE
+            </div>
+            <div class="col-md-6 right">
+                STRONGLY AGREE
+            </div>
+        </div>
+        <div class="row likert">
+            <div class="button-wrapper">
+                <button id="questionnaireButton" class="button" type="submit">Next</button>
+            </div>
+        </div>
+    }
+</div>

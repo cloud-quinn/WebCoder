@@ -1,0 +1,583 @@
+﻿.add {
+    margin: 4em 1em 0 0;
+}
+
+#badgeCanvas {
+    width: 60%;
+    margin: 0 !important;
+}
+
+#badgeImg img{
+    width: 90%;
+    margin: 0 auto !important;
+}
+
+canvas {
+    margin: 1em 0 0 2em;
+    float: left;
+}
+
+body {
+    font-size: 1em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif !important;
+    color: #232323;
+    background: url('images/bg-wc.png') repeat-x;
+    background-color: rgb(228,228,228);
+    margin: 2em 2.5em !important;
+}
+
+.button {
+    background-color: #337AB7;
+    border: 1px solid #0b273e;
+    border-radius: 3px 3px;
+    padding: 0.25em 1em !important;
+    color: #fff;
+    text-decoration: none !important;
+}
+
+.button:hover {
+    background-color: #164874;
+    color: #fff;
+}
+
+#checkCode {
+    width: 8em;
+    margin: 10px 0 0 15px;
+    padding: 0 0 0.25em 0;
+}
+
+.codeArea {
+    /*height: 25.5em;*/
+    font-family: 'Courier New', 'Consolas', sans-serif;
+    font-size: 1.25em;
+    border: 2px solid #a4a1a1;
+    text-align: left;
+    float: left;
+    width: 95%;
+    padding: 0.5em 1em;
+    margin: 0 0 0 0.85em;
+    overflow: scroll;
+}
+
+.ui-dialog {
+    background-color: rgb(228,228,228);
+    font-size: 1em;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 2em;
+    border-radius: 4px 4px;
+    padding: 1em 1em;
+    float: left;
+    z-index: 100;
+}
+
+.ui-dialog-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ui-widget-header, .ui-dialog-buttonset, .ui-dialog-title, .ui-dialog-titlebar {
+    text-align: center !important;
+    width: 99% !important;
+    margin: 0 auto !important;
+}
+
+.color {
+    height: 40px;
+    width: 40px;
+    display: inline;
+    border-radius: 6px 6px;
+}
+
+.black {
+    background-color: black !important;
+}
+
+.navy {
+    background-color: navy !important;
+}
+
+.blue {
+    background-color: blue !important;
+}
+
+.green {
+    background-color: green !important;
+}
+
+.teal {
+    background-color: teal !important;
+}
+
+.turquoise {
+    background-color: turquoise !important;
+}
+
+.skyblue {
+    background-color: skyblue !important;
+}
+
+.lime {
+    background-color: lime !important;
+}
+
+.cyan {
+    background-color: cyan !important;
+}
+
+.purple {
+    background-color: purple !important;
+}
+
+.maroon {
+    background-color: maroon !important;
+}
+
+.red {
+    background-color: red !important;
+}
+
+.orange {
+    background-color: orange !important;
+}
+
+.tan {
+    background-color: tan !important;
+}
+
+.silver {
+    background-color: silver !important;
+}
+
+.pink {
+    background-color: pink !important;
+}
+
+.yellow {
+    background-color: yellow !important;
+}
+
+.white {
+    background-color: white !important;
+}
+
+#dialog-colorChoose, #dialog-fontChoose {
+    z-index: 100;
+}
+
+    #dialog-colorChoose button, #dialog-fontChoose button {
+        background: none !important;
+        border: none !important;
+    }
+
+.font, .float {
+    background: none !important;
+    border: none !important;
+    font-size: 1.15em;
+    margin-right: 0.75em;
+}
+
+.ui-state-hover {
+    color: #808080;
+}
+
+.Arial {
+    font-family: Arial !important;
+}
+
+.ArialBlack {
+    font-family: Arial Black !important;
+    font-size: 1.05em !important;
+    margin: 0 2em !important;
+}
+
+.ComicSans {
+    font-family: Comic Sans MS !important;
+}
+
+.CourierNew {
+    font-family: Courier New !important;
+}
+
+.Georgia {
+    font-family: Georgia !important;
+    margin: 0 1.5em !important;
+}
+
+.Helvetica {
+    font-family: Helvetica !important;
+}
+
+.Impact {
+    font-family: Impact !important;
+}
+
+.LucidaSans {
+    font-family: Lucida Sans Unicode !important;
+    font-size: 1.05em !important;
+    margin: 0 1.5em !important;
+}
+
+.Tahoma {
+    font-family: Tahoma !important;
+}
+
+.TimesNewRoman {
+    font-family: Times New Roman !important;
+}
+
+.Trebuchet MS {
+    font-family: Trebuchet MS !important;
+}
+
+.Verdana {
+    font-family: Verdana !important;
+}
+
+.draggable {
+    z-index: 999;
+    cursor: pointer;
+}
+
+#draggables {
+    list-style: none;
+}
+
+#example {
+    font-family: 'Courier New';
+    font-size: 1.2em;
+    border: 1px dotted #a4a1a1;
+    background: #fff;
+    padding: 0.25em 0.25em;
+    white-space: pre;
+}
+
+/*#example {
+    
+}*/
+
+#instructions {
+    line-height: 20px;
+    padding-left: 0 !important;
+}
+
+.instructions {
+    height: 20px;
+    margin: 0 0 3px 0;
+}
+    #cdBtn {
+        height: 30px;
+    } 
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+
+.float {
+    /*display: inline;*/
+    /*clear: both;*/
+    padding: 1em 1em;
+    border: 1px solid #000;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/*#feedback {
+margin: 0 0 0 5em;
+}*/
+
+h1 {
+    font-size: 2em !important;
+}
+
+h1, h3 {
+    margin: 0 0 0.5em 0 !important;
+}
+
+.html {
+    display: inline;
+}
+
+#htmlResult, iframe {
+    background-color: #f7f1f1;
+}
+
+#htmlResult {
+    /*padding: 0 0 0 2.5em;*/
+    border-radius: 5px 5px;
+    border: 2px solid #a4a1a1;
+    /*height: 32em;*/
+}
+
+.icon img {
+    width: 6%;
+    border-radius: 15px;
+    border: 1px solid rgb(220, 219, 219);
+    box-shadow: 2px 2px rgba(128, 128, 128, 0.44);
+    z-index: 1;    
+    margin: 1em 0 1em 1em;
+}
+
+iframe {
+    height: 30em;
+}
+
+
+iframe {
+    border-style: none;
+    float: right;
+}
+
+
+.imgs {
+    cursor: not-allowed;
+    border-radius: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    width: 22% !important; 
+    padding: 0 0 0 2%;
+}
+
+
+
+.imgs p {   
+    text-align: center;
+    font-size: 0.8em;
+}
+
+/*.imgs p, .imgs img {
+    width: 70%;
+
+    /*margin: 0 0 0 1em;
+}*/
+
+.lineNums {
+    display: none;    
+    font-size: 1.1em;
+    line-height: 163%;
+}
+
+/*.lineNums {
+    height: 29.75em;
+    background-color: #efefef;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    max-width: 40px;
+    text-align: right;
+    margin: 0 0 0 15px;
+    padding: 0.2em 0 0 0;
+    font-family: 'Courier New', 'Consolas', sans-serif;
+
+    color: #808080;
+}*/
+
+.logo {
+    width: 60%;
+}
+
+.margin {
+    /*margin: 0.25em 1em;*/
+    padding: 0 !important;
+    line-height: 15px;
+    width: 18px;
+}
+
+#next {
+    border: none;
+    background: none;
+    height: 70px;
+    /*font-size: 1.8em;*/
+    color: #1E78C0;
+}
+
+#next p {
+float: left;
+font-size: 2em;
+}
+
+#next img {
+height: 25px;
+margin: 0 0 3px 0;
+}
+
+.topM {
+    position: absolute;
+    top: 56px;
+}
+
+.bottomM {
+    position: absolute;
+    top: 198px;
+}
+
+.rightM {
+    position: absolute;
+    left: 180px;
+}
+
+.leftM {
+    position: absolute;
+    left: 36px;
+}
+
+.plus {
+    left: 126px;
+}
+
+.minus {
+    left: 88px;
+}
+
+.plus1 {
+    top: 104px;
+}
+
+.minus1 {
+    top: 142px;
+}
+
+p {
+    /*margin: 0.5em 0 0 0.4em;*/
+    font-size: 1.1em;
+}
+
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -appearance: none;
+    background: url('images/WebCoder-logo.png') no-repeat;
+    height: 1.5em;
+    width: 35%;
+}
+
+    progress::-webkit-progress-bar {
+        background: #ddd;
+        border-radius: 5px;
+        padding: 2px;
+        box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    progress::-webkit-progress-value {
+        background: #1E78C0;
+        border-radius: 5px;
+        padding: 2px;
+    }
+
+/*.table2 {
+    display: table !important;
+    width: 30% !important;
+}
+
+.row2 {
+    display: table-row !important;
+    width: 50% !important;
+}
+
+.cell2 {
+    display: table-cell !important;
+    width: 25% !important;
+}
+
+
+.titles {
+    margin-left: 1.5em;
+}*/
+
+.toggle-tab, #checkCode {
+    font-size: 1.2em;
+    border: 1px solid #808080;
+    height: 2em;
+}
+
+.toggle-tab {
+    width: 5em;
+    border-radius: 2px 15px 2px 2px;
+    float: left;
+}
+
+.ui-widget {
+}
+
+
+
+/*.top-table {
+    display: table !important;
+    width: 100% !important;
+}
+
+.top-row {
+    display: table-row !important;
+    width: 90% !important;
+}
+
+.top-cell {
+    display: table-cell !important;
+    width: 30% !important;
+}
+
+    .top-cell img {
+        margin: 0 0.5em 0.5em 0;
+    }
+*/
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}

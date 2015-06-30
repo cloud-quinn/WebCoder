@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Tutorial Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        updateCSS(bc3)
+    });
+</script>
+<h2>Thank you for completing the tutorial!</h2>
+<p>We hope you enjoyed learning HTML and CSS.</p>
+<p>The next step is a short test covering the skills you learned in the tutorial.</p>
+<p>So that we can accurately judge how good WebCoder is, please don't look the answers up anywhere else during the test. It is the system that is being tested, not you, and it’s important you answer everything honestly so the results are useful. We will show you a sample solution at the end to help you self-assess.</p>
+<p>If you are ready to start the test, click “Start”.</p>
+<div class="button-wrapper">
+    @Html.ActionLink("Start", "Test", null, new { @class = "button" })
+</div>
+
+

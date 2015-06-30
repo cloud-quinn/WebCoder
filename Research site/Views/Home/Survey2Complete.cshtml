@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Questionnaire Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        updateCSS(bc5)
+        exampleHTML();
+        exampleCSS();
+        //$("#score").html("You scored <strong>" + score + "</strong> out of 8 on the test.");
+    });
+</script>
+<div class="container-fluid">
+    <h2>Thank you for completing the research session!</h2>
+    <p>By carrying out these tasks, you have helped us learn more about our system and how people use it. Thank you!</p>
+    <p>We hope you have also enjoyed learning HTML and CSS and that you may choose to try some more coding in the future.</p>
+    @*<ol>
+        <li>Insert a heading that says “Welcome to my website”.<span id="test1"></span></li>
+        <li>Insert a paragraph of text about yourself.<span id="test2"></span></li>
+        <li>Insert an image of your choice.<span id="test3"></span></li>
+        <li>Insert a hyperlink of your choice.<span id="test4"></span></li>
+        <li>Make the heading blue.<span id="test5"></span></li>
+        <li>Make the paragraph Arial font.<span id="test6"></span></li>
+        <li>Position the image to the right of the text.<span id="test7"></span></li>
+        <li>Add a 40px margin to the top of the hyperlink.<span id="test8"></span></li>   
+    </ol>*@
+    <h4 id="score"></h4>
+    <p>Below is an example answer to the test. If you have any questions, or would like to leave some more feedback, please feel free to <a class="mailto" href="mailto:cloud.quinn@online.liverpool.ac.uk?subject=WebCoder Research"><i class="fa fa-envelope-o"></i>E-mail the Researcher</a></p>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <button class="toggle-tab">HTML</button>
+        <textarea class="col-lg-12 col-md-12 col-sm-12 col-xs-12 codearea" rows="16" id="htmlEx"></textarea>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <button class="toggle-tab">CSS</button>
+        <textarea class="col-lg-12 col-md-12 col-sm-12 col-xs-12 codearea" rows="16" id="cssEx"></textarea>
+    </div>
+</div>

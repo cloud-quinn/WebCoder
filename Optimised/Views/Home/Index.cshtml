@@ -1,0 +1,157 @@
+﻿<!--OPTIMISED UI-->
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <title>WebCoder</title>
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    @*<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/initialise.js"></script>
+    <script src="~/Scripts/populate.js"></script>
+    <script src="~/Scripts/getLineNums.js"></script>
+    <script src="~/Scripts/generateTag.js"></script>
+    <script src="~/Scripts/updateHTML.js"></script>
+    <script src="~/Scripts/updateCSS.js"></script>
+    <script src="~/Scripts/updateProgress.js"></script>
+    <script src="~/Scripts/loadInstructions.js"></script>
+    <link rel="icon" type="image/ico" href="~/Content/images/favicon.ico">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <img class="img-responsive logo" src="~/Content/images/WebCoder-logo.png" />
+            </div>
+            <div class="col-md-4">
+                <h3><strong>Progress</strong></h3><progress id="progress" value="0" max="100"></progress><div id="progReport"></div>
+            </div><div class="col-md-4">
+                <h3><strong>Badges</strong></h3>
+                <canvas id="badgeCanvas" width="300" height="68"></canvas>
+                <script src="~/Scripts/drawBadges.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <h1>Instructions</h1>
+        <div id="instructions" class="col-lg-7 col-md-7 col-sm-7 col-xs-7"></div>
+        <button id="next" class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><p><img src="~/Content/images/arrow.png" alt="next" /> &nbsp;next</p></button>
+        <p id="example"></p>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row icon">
+            <!--HTML icons generate tags when dropped into the code area-->
+            <img id="pTag" src="~/Content/images/p.png" class="html draggable" data-tagtype="&lt;p&gt;&lt;/p&gt;" alt="add a paragraph of text" />
+            <img id="h1Tag" src="~/Content/images/h1.png" class="html draggable" data-tagtype="&lt;h1&gt;&lt;/h1&gt;" alt="add a heading" />
+            <img id="aTag" src="~/Content/images/a.png" class="html draggable" data-tagtype="&lt;a href=''&gt;&lt;/a&gt;" alt="add a link" />
+            <img id="imgTag" src="~/Content/images/img.png" class="html draggable" data-tagtype="&lt;img src='' alt='' /&gt;" alt="add a link" />
+
+            <!--Equivalent CSS icons appear when CSS mode is toggled-->
+            <img id="float" src="~/Content/images/position.png" class="css draggable" data-tagtype="float: ">
+            <img id="color" src="~/Content/images/color.png" class="css draggable" data-tagtype="color: ">
+            <img id="font" src="~/Content/images/font.png" class="css draggable" data-tagtype="font-family: ">
+            <img id="margin" src="~/Content/images/margin.png" class="css draggable" data-tagtype="margin: ">
+
+            <!--Image filenames appear when an inage is required-->
+            <img id="imgs" src="~/Content/images/imgs.png" class="imgs" />
+
+            @*<div class="container-fluid">*@
+                @*<div class="container-fluid imgs">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="~/mug.png" alt="image of a mug to use for practice" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="~/hat.png" alt="image of a mug to use for practice" />
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <img src="~/t-shirt.png" alt="image of a mug to use for practice" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p>mug.png</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p>hat.png</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <p>t-shirt.png</p>
+                        </div>
+                    </div>
+                </div>*@
+            @*</div>*@
+
+
+        </div>
+
+        <!--Drag and drop is disabled for final few activities, but a syntax hint is displayed when mouse hovers over icons-->
+        <p id="hint"></p>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <button onclick="toggleHTML()" class="toggle-tab" id="toggle-HTML" type="button">HTML</button><button onclick="toggleCSS()" class="toggle-tab" id="toggle-CSS" type="button">CSS</button>
+                <script src="~/Scripts/toggleMode.js"></script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 lineNums" id="lineNums"></div>
+            <textarea class="col-md-5 codeArea" rows="16" id="htmlCode"></textarea>
+            <textarea class="col-md-5 codeArea" rows="16" id="cssCode"></textarea>
+            <script src="~/Scripts/checkCode.js"></script>
+            <div class="col-md-1"></div>
+            <div class=" col-md-5" id="htmlResult">
+            </div>
+        </div><div class="row">
+            <button onclick="checkCode()" type="button" id="checkCode" class="button">Check Code</button>
+        </div>
+
+    </div>
+
+
+
+    <div class="dialog" id="dialog-badge" title="You earned a badge!">
+        <p>
+            <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+            <br />
+            <div id="badgeImg"></div>
+        </p>
+    </div>
+
+    <div class="dialog" id="dialog-success" title="Success">
+        <p id="success-text"></p>
+        <div id="successImg"></div>
+
+    </div>
+
+    <div class="dialog" id="dialog-failure" title="That's not quite right.">
+        <p id="dialog-text"></p> <br />
+        <div id="failureImg"></div>
+    </div>
+
+    <div id="dialog-floatChoose" title="Choose your position">
+    </div>
+
+    <div id="dialog-colorChoose" title="Choose your color">
+    </div>
+
+    <div id="dialog-fontChoose" title="Choose your font">
+    </div>
+
+    <div id="dialog-marginChoose" title="Choose your margins">
+    </div>
+
+    <div id="dialog-otherErrors" title="Sorry...">
+    </div>
+    <div id="hidden"></div>
+</body>

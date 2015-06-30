@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Start Research";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>The Research</h2>
+<p>Thank you for offering to help with this research. It will take about an hour, but you can choose to stop at any time if you change your mind.</p>
+<p>The first step is a short questionnaire. You will then complete a tutorial, take a test, and answer another short questionnaire before finishing.</p>
+<p>If you want to read the information about the research again, click “Agreement” at the top of the page.</p>
+<p>The questionnaire will ask you to choose a number that suggests how much you agree or disagree with a statement. 1 means you strongly disagree, and 7 means you strongly agree. There are no right or wrong answers.</p>
+<p>If you are ready to start the questionnaire, click “Start”.</p>
+<div class="button-wrapper">
+    @Html.ActionLink("Start", "Survey1", null, new { @class = "button" })
+</div>

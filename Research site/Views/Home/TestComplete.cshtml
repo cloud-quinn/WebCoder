@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Test Complete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        updateCSS(bc4)
+    });
+</script>
+<h2>Thank you for completing the test!</h2>
+<p>We'll just ask a few more questions before you finish, if that's OK?</p>
+<p>If you are ready to start the questionnaire, click “Start”.</p>
+<div class="button-wrapper">
+    @Html.ActionLink("Start", "Survey2", null, new { @class = "button" })
+</div>
+
+
+

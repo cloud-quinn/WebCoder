@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - WebCoder Research</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="~/Scripts/Site.js"></script>
+    <script src="~/Scripts/toggleMode.js"></script>
+    <script src="~/Scripts/populate.js"></script>
+    <script src="~/Scripts/updateHTML.js"></script>
+    <script src="~/Scripts/checkCode.js"></script>
+    <link rel="icon" type="image/ico" href="~/Content/Images/favicon.ico">
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>*@
+    @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+    @*</div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <img class="img-responsive logo" src="~/Content/images/Research-logo.png" /><br />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 topright">
+                <ul id="topLinks">
+                    <li><a id="agreement" href="#">Agreement</a> &nbsp&middot&nbsp</li>
+                    <li><a id="instruct" href="#">Instructions</a> &nbsp&middot&nbsp</li>
+                    <li><a class="mailto" href="mailto:cloud.quinn@online.liverpool.ac.uk?subject=WebCoder Research"><i class="fa fa-envelope-o"></i>E-mail the Researcher</a></li>
+                </ul>
+
+                <br />
+                <ul id="breadcrumbs">
+                    <li id="bc1">&gt; Questions</li>
+                    <li id="bc2">&gt; Tutorial</li>
+                    <li id="bc3">&gt; Test</li>
+                    <li id="bc4">&gt; Questions</li>
+                    <li id="bc5">&gt; End</li>
+                </ul>
+
+            </div>
+            <div id="e-mail" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <p>Clicking this link should open a new e-mail in your desktop e-mail program.</p>
+                <p>If that doesn't work, you can right click this link, select "Copy email address" and paste it into a new e-mail.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <br /><br /><br /><br /><br />
+        <footer>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Cloud Quinn - WebCoder Research</p>
+        </footer>
+    </div>
+
+    <div id="declaration">
+        <h3>User Declaration</h3>
+        <p>I understand that the point of this research is to improve computer systems that are used to learn coding.</p>
+        <p>The system is being tested, but I am not, so I cannot perform “well” or “badly”. There is no advantage to cheating and, if I try to cheat in any way, the results will be useless.</p>
+        <p>I am choosing to take part in this research and can choose to stop at any time. I can choose not to take part, or to stop after starting, with no disadvantage.</p>
+        <p>I understand that taking part in this research will take about an hour.</p>
+        <p>I understand that I will be asked to answer some questions, do some website coding tasks, and take a short test.</p>
+        <p>I understand that I will be given one of two tutorial designs to use at random, and I cannot choose which tutorial design I use.</p>
+        <p>I have not studied HTML or CSS before.</p>
+        <p>I am 18 or over.</p>
+        <p>I have read and understood this declaration, and I agree to take part.</p>
+        <p>By clicking “I agree”, I create a digital signature and sign this agreement to take part in the research.</p>
+    </div>
+
+    <div id="instructions">
+        <h3>How to complete the research tasks</h3>
+        <p>The first step is a short questionnaire. You will then complete a tutorial, take a test, and answer another short questionnaire before finishing.</p>
+        <p>The <strong>questionnaires</strong> will ask you to choose a number that suggests how much you agree or disagree with a statement. 1 means you strongly disagree, and 7 means you strongly agree. There are no right or wrong answers.</p>
+        <p>The <strong>tutorial</strong> will involve a series of practical coding tasks. There will be instructions, hints, and feedback for each task.</p>
+        <p>The <strong>test</strong> will ask you to write some code using the skills you learned in the tutorial. We will show you a sample solution at the end, but, don't forget, we are testing the system, not you, so don't worry about making mistakes - just have fun!</p>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+</body>
+</html>

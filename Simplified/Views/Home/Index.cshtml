@@ -1,0 +1,143 @@
+﻿<!--SIMPLIFIED UI-->
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <title>WebCoder</title>
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    @*<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/initialise.js"></script>
+    <script src="~/Scripts/populate.js"></script>
+    <script src="~/Scripts/getLineNums.js"></script>
+    <script src="~/Scripts/generateTag.js"></script>
+    <script src="~/Scripts/updateHTML.js"></script>
+    <script src="~/Scripts/updateCSS.js"></script>
+    <script src="~/Scripts/updateProgress.js"></script>
+    <script src="~/Scripts/loadInstructions.js"></script>
+    <link rel="icon" type="image/ico" href="~/Content/images/favicon.ico">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <img class="img-responsive logo" src="~/Content/images/WebCoder-logo.png" />
+            </div>
+            <div class="col-md-4">
+                <h3><strong>Progress</strong></h3><progress id="progress" value="0" max="100"></progress><div id="progReport"></div>
+            </div><div class="col-md-4">
+                <h3><strong>Badges</strong></h3>
+                <canvas id="badgeCanvas" width="300" height="68"></canvas>
+                <script src="~/Scripts/drawBadges.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <h1>Instructions</h1>
+        <div id="instructions" class="col-lg-7 col-md-7 col-sm-7 col-xs-7"></div>
+        <button id="next" class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><p><img src="~/Content/images/arrow.png" alt="next" /> &nbsp;next</p></button>
+        <p id="example"></p>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row icon">
+            <!--Image filenames appear when an image is required-->
+            <img id="imgs" src="~/Content/images/imgs.png" class="imgs" />
+            <!--available fonts and colors appear when CSS mode is active-->
+            <ul id="fonts" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <li id="Arial">Arial </li>
+                <li id="ArialBlack">Arial Black </li>
+                <li id="ComicSans">Comic Sans MS </li>
+                <li id="CourierNew">Courier New </li>
+                <li id="Georgia">Georgia </li>
+                <li id="Helvetica">Helvetica </li>
+                <li id="Impact">Impact </li>
+                <li id="LucidaSans">Lucida Sans Unicode </li>
+                <li id="Tahoma">Tahoma </li>
+                <li id="TimesNewRoman">Times New Roman </li>
+                <li id="Trebuchet">Trebuchet MS </li>
+                <li id="Verdana">Verdana </li>
+            </ul>
+            <ul id="colors" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <li> <span id="black" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Black&nbsp;&nbsp; </li>
+                <li> <span id="navy" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Navy&nbsp;&nbsp; </li>
+                <li> <span id="blue" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Blue&nbsp;&nbsp; </li>
+                <li> <span id="green" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Green&nbsp;&nbsp; </li>
+                <li> <span id="teal" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Teal&nbsp;&nbsp; </li>
+                <li> <span id="turquoise" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Turquoise&nbsp;&nbsp; </li>
+                <li> <span id="skyblue" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;SkyBlue&nbsp;&nbsp; </li>
+                <li> <span id="lime" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Lime&nbsp;&nbsp; </li>
+                <li> <span id="cyan" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Cyan&nbsp;&nbsp; </li>
+                <li> <span id="purple" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Purple&nbsp;&nbsp; </li>
+                <li> <span id="maroon" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Maroon&nbsp;&nbsp; </li>
+                <li> <span id="red" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Red&nbsp;&nbsp; </li>
+                <li> <span id="orange" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Orange&nbsp;&nbsp; </li>
+                <li> <span id="tan" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Tan&nbsp;&nbsp; </li>
+                <li> <span id="silver" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Silver&nbsp;&nbsp; </li>
+                <li> <span id="pink" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Pink&nbsp;&nbsp; </li>
+                <li> <span id="yellow" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;Yellow&nbsp;&nbsp; </li>
+                <li> <span id="white" class="color">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;White&nbsp;&nbsp; </li>
+            </ul>
+            <div class=""></div>
+            @*<img id="imgs" src="~/Content/images/imgs.png" class="imgs" />*@
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <button onclick="toggleHTML()" class="toggle-tab" id="toggle-HTML" type="button">HTML</button><button onclick="toggleCSS()" class="toggle-tab" id="toggle-CSS" type="button">CSS</button>
+                <script src="~/Scripts/toggleMode.js"></script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1 lineNums" id="lineNums"></div>
+            <textarea class="col-md-5 codeArea" rows="16" id="htmlCode"></textarea>
+            <textarea class="col-md-5 codeArea" rows="16" id="cssCode"></textarea>
+            <script src="~/Scripts/checkCode.js"></script>
+            <div class="col-md-1"></div>
+            <div class=" col-md-5" id="htmlResult">
+            </div>
+        </div><div class="row">
+            <button onclick="checkCode()" type="button" id="checkCode" class="button">Check Code</button>&nbsp;&nbsp;
+        <button id="hintme"><span style="font-size: 1.5em">Hint</span></button>
+        </div>
+
+    </div>
+
+
+
+    <div class="dialog" id="dialog-badge" title="You earned a badge!">
+        <p>
+            <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+            <br />
+            <div id="badgeImg"></div>
+        </p>
+    </div>
+
+    <div class="dialog" id="dialog-success" title="Success">
+        <p id="success-text"></p>
+        <div id="successImg"></div>
+
+    </div>
+
+    <div class="dialog" id="dialog-failure" title="That's not quite right.">
+        <p id="dialog-text"></p> <br />
+        <div id="failureImg"></div>
+    </div>
+
+    <div class="dialog" id="dialog-hint" title="Hint">
+        <p id="dialog-hint-text"></p> 
+    </div>
+
+    <div id="dialog-otherErrors" title="Sorry...">
+    </div>
+    <div id="hidden"></div>
+</body>
