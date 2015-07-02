@@ -69,17 +69,17 @@ updateAll = function () {
         $("#checkCode").hide();
         $("#example").hide();
     }
-    else if (thisActivity >= 10) {
+    if (thisActivity >= 10) {
         $("#hintme").show();
         $("#colors").show();
         $("#fonts").show();
     }
-    else if (thisActivity <= 7 || thisActivity == 19) {
+    if (thisActivity <= 7 || thisActivity == 19) {
         populateHTML();
     }
-    else if ((thisActivity >= 7 && thisActivity <= 15) || thisActivity == 20) {
+    if ((thisActivity >= 7 && thisActivity <= 15) || thisActivity == 20) {
         populateCSS();
     }
 }
-//}
+
 

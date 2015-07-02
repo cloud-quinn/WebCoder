@@ -22,7 +22,7 @@ var missingSemicolon = "Did you remember to add a semicolon to the end of the st
 var invalidColor = "Did you remember to set a value for color? For example: color: red;.";
 var invalidFont = "Did you remember to set a value for font-family? For example: font-family: Arial;.";
 var invalidFloat = "Did you remember to set a value of 'left' or 'right' for float? For example: float: left;.";
-var invalidMargin = "Did you remember to set a number value in pixels? For example, margin-top: 50px;.";
+var invalidMargin = "Did you remember to set a number value in pixels? For example, margin: 50px 0px 0px 0px;.";
 var pRequired;
 var hRequired;
 var aRequired;
@@ -243,11 +243,13 @@ setUpTask = function () {
 }
 
 function checkCode() {
-    var caretPos = 20;
-    getCode(); //update array of code contents    
     var output = $("iframe.col-md-12").contents();
+    getCode(); //update array of code contents    
     var aMove = false;
     var iMove = false;
+
+    //keep track of characters for caret positioning
+    var chars = 0;
 
     //HTML validation
     if (mode == "HTML") {
@@ -264,8 +266,7 @@ function checkCode() {
         var a = 0;
         var img = 0;
 
-        //keep track of characters for caret positioning
-        var chars = 0;
+
 
         for (i = 0; i < line.length; i++) {
 
@@ -384,6 +385,7 @@ function checkCode() {
                         }
 
                         //search the tag for alt content 
+                        if (tagLn.includes("alt")) {
                         if (tagLn.charAt(tagLn.length - 4) == "'" && tagLn.charAt(tagLn.length - 5) == "'") {
                             var altText = false;
                         }
@@ -392,6 +394,7 @@ function checkCode() {
                         }
                         else {
                             altText = true;
+                        }
                         }
 
                         //validate image if src and alt values included
