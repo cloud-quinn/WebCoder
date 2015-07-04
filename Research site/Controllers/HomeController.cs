@@ -119,11 +119,11 @@ namespace Research_site.Controllers
             var UI = Request.Cookies["OptimisedUI"].Value;
             if (UI == "False")
             {
-                Response.Redirect("PlainUI");
+                Response.Redirect("http://localhost:57178"); //Simplified
             }
             else
             {
-                Response.Redirect("OptimisedUI");
+                Response.Redirect("http://localhost:57177"); //Optimised
             }
             return View();
         }
@@ -207,6 +207,7 @@ namespace Research_site.Controllers
                 Value = answer
             });
             c.SaveChanges();
+            SaveEndTime();
             ViewBag.questiontext = question.QuestionText;
             return View("Survey2Complete");
         }
@@ -215,10 +216,6 @@ namespace Research_site.Controllers
         {
             return View();
         }
-
-
-
-
 
         public ActionResult OptimisedUI()
         {
@@ -239,11 +236,19 @@ namespace Research_site.Controllers
             var user = c.Users.Find(UserIDint);
             user.Score = Score;
             c.SaveChanges();
-            //ViewBag.Score = Score;
             return null;
         }
 
-
+        public ActionResult SaveEndTime()
+        {
+            var c = new ResearchDB();
+            var UserID = Request.Cookies["UserID"].Value;
+            var UserIDint = int.Parse(UserID);
+            var user = c.Users.Find(UserIDint);
+            user.EndTime = DateTime.Now;
+            c.SaveChanges();
+            return null;
+        }
 
 
     }

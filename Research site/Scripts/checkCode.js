@@ -1,24 +1,11 @@
 ﻿
 var score = 0; //User will score out of 8 for the test
-var answers = []; //User will find out which tasks they scored points
-var icons = []; //present an icon for correct or incorrect when feedback is given
+var answers = []; //array of correct and incorrect responses
 
 function checkCode() {
         validateHTML();
         validateCSS();
         window.score;
-        //for (i = 0; i < answers.length; i++) {
-        //    if (answers[i] == "true") {
-        //        icons.push("<i class='fa-check'></i>")
-        //    }
-        //    if (answers[i] == "false") {
-        //        icons.push("<i class='fa-times'></i>")
-        //    }
-        //}
-        //$("#score").text(score);
-    //fa-check fa-times
-
-
 
         //save score to database from Home Controller
         $.post("/Home/SaveScore", { Score: score, Answers: answers }, function () {

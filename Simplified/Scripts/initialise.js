@@ -1,7 +1,7 @@
 ﻿
 $(document).ready(function () {
     //WebCoder doesn't function on mobile devices, but the mobile landing page provides information about the research
-    if ($(window).width() <= 1024) {
+    if ($(window).width() < 1024) {
         window.location.href("http://localhost:6539/");
     }
     window.thisActivity = 0;

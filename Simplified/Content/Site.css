@@ -84,6 +84,7 @@ body {
 
 #colors {
     width: 470px;
+    margin-bottom: 0 !important;
 }
 
 #colors li {

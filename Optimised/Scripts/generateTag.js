@@ -168,7 +168,6 @@ $(document).ready(function () {
                         buttons: [{
                             class: "float left",
                             text: "<= Left",
-                            //icons: { primary: "ui-icon-arrow-1-w", secondary: "ui-icon-arrow-1-w" }
                             click: function () {
                                 $("#cssCode").val(cssTxt.substring(0, caretPos) + cssToAdd + "left;" + cssTxt.substring(caretPos));
                                 $(this).dialog("close");
@@ -178,7 +177,6 @@ $(document).ready(function () {
                         {
                             class: "float right",
                             text: "Right =>",
-                            //icon: ui-icon-arrow-1-e,
                             click: function () {
                                 $("#cssCode").val(cssTxt.substring(0, caretPos) + cssToAdd + "right;" + cssTxt.substring(caretPos));
                                 $(this).dialog("close");
@@ -555,7 +553,8 @@ $(document).ready(function () {
 
                 }
 
-                //generate margin styles
+                //generate margin styles in method similar to that of Polarblau (2011)
+                //Polarblau (2011) Canvas element inside jquery dialog ui  [source code] Available from: https://stackoverflow.com/questions/6867954/canvas-element-inside-jquery-dialog-ui/6869448#6869448?newreg=a0c10e1d39f949d297620032f397fa6a (Accessed 6 June 2015)
                 //moveable canvas illustrates size of margin
                 function margCanvas() {
                     $("#dialog-marginChoose").find("canvas").remove();
