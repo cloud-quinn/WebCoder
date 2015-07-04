@@ -37,7 +37,7 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         test.assertTextExists('Success', 'Success dialog title appears');
         test.assertTextExists('Let' + "'" + 's go', 'Success dialog initial message is correct');
         this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/lets-go-success-dialog.png');
-        this.click('.ui-dialog-buttonset button');
+        this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
     });
 
     casper.then(function () {
@@ -59,7 +59,7 @@ casper.test.begin('Optimised test', 11, function suite(test) {
             test.assertTextExists("That'" + "s not quite right", 'Error dialog title appears');
             test.assertTextExists('Make sure you type some words between <p> and </p> to make a paragraph', 'Empty P tag error message is displayed');
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/paragraph-error-dialog.png');
-            this.click('div[aria-describedby=dialog-failure] button');
+            this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
         });
         this.wait(1000, function () {
             casper.evaluate(function () {
@@ -83,7 +83,7 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         });
         this.wait(1000, function () {
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/text-badge.png');
-            this.click('div[aria-describedby=dialog-badge] button');
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
         });
     });
 
@@ -93,11 +93,33 @@ casper.test.begin('Optimised test', 11, function suite(test) {
             this.mouse.down('#h1Tag');
             this.mouse.move('#htmlCode');
             this.mouse.up('#htmlCode');
-            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/drag-drop-heading.png')
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/drag-drop-heading.png');
             var found = casper.evaluate(function () {
                 return $("#htmlCode").val();
             });
             test.assert(found.search('<h1></h1>') > -1);
+        });
+    });
+
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#htmlCode").val(" ");
+                var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<h1></h1>", "\n", "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>", "\n", "</body>", "\n", "</html>"];
+                var populaterHTML = [];
+                for (i = 0; i < htmlStart.length; i++) {
+                    populaterHTML += (htmlStart[i]);
+                    htmlLength++;
+                }
+                $("#htmlCode").val(populaterHTML);
+            });
+            this.wait(1000, function () {
+                this.click('button#checkCode');
+                this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/header-error-dialog.png');
+            });
+            this.wait(1000, function () {
+                this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
+            });
         });
     });
 
@@ -123,7 +145,9 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         });
         this.wait(1000, function () {
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/heading-badge.png');
-            this.click('div[aria-describedby=dialog-badge] button');
+        });
+        this.wait(1000, function () {
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
         });
     });
 
@@ -137,6 +161,20 @@ casper.test.begin('Optimised test', 11, function suite(test) {
             return $("#htmlCode").val();
         });
         test.assert(found.search("<a href='" + "'></a>") > -1);
+    });
+
+    //SCREENSHOTS ISSUE STARTS HERE
+
+    casper.then(function () {
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+        });
+        this.wait(2000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/link-error-dialog.png');
+        });
+        this.wait(2000, function () {
+            this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
+        });
     });
 
     casper.then(function () {
@@ -154,6 +192,8 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         });
         this.wait(1000, function () {
             this.click('button#checkCode');
+        });
+        this.wait(5000, function () {
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task3-success-dialog.png');
         });
         this.wait(1000, function () {
@@ -161,7 +201,7 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         });
         this.wait(1000, function () {
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/link-badge.png');
-            this.click('div[aria-describedby=dialog-badge] button');
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
         });
     });
 
@@ -201,7 +241,31 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         });
     });
 
-
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#htmlCode").val(" ");
+                var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<img src='mug.png' alt='coffee mug /'>", "\n", "</body>", "\n", "</html>"];
+                var populaterHTML = [];
+                for (i = 0; i < htmlStart.length; i++) {
+                    populaterHTML += (htmlStart[i]);
+                    htmlLength++;
+                }
+                $("#htmlCode").val(populaterHTML);
+            });
+        });
+        this.wait(2000, function () {
+            this.click('button#checkCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task5-success-dialog.png');
+        });
+        this.wait(1000, function () {
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+        });
+        this.wait(1000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/img-badge.png');
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
+        });
+    });
 
     casper.run(function () {
         test.done();
