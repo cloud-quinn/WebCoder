@@ -267,18 +267,6 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         });
     });
 
-    casper.then(function () {
-        this.wait(1000, function () {
-            this.click('button#checkCode');
-        });
-        this.wait(2000, function () {
-            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/image-error-dialog.png');
-        });
-        this.wait(2000, function () {
-            this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
-        });
-    });
-
     casper.run(function () {
         test.done();
     });
