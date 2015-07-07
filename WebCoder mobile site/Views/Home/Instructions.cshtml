@@ -1,14 +1,14 @@
 ﻿@{
+    ViewBag.Title = "Declaration";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div id="instructions">
     <h2>How to complete the research tasks</h2>
     <p>The first step is a short questionnaire. You will then complete a tutorial, take a test, and answer another short questionnaire before finishing.</p>
     <p>The <strong>questionnaires</strong> will ask you to choose a number that suggests how much you agree or disagree with a statement. 1 means you strongly disagree, and 7 means you strongly agree. There are no right or wrong answers.</p>
     <p>The <strong>tutorial</strong> will involve a series of practical coding tasks. There will be instructions, hints, and feedback for each task.</p>
     <p>The <strong>test</strong> will ask you to write some code using the skills you learned in the tutorial. We will show you a sample solution at the end, but, don't forget, we are testing the system, not you, so don't worry about making mistakes - just have fun!</p>
-</div>
+
 
 <div class="button-wrapper">
     @Html.ActionLink("Back to Home", "Index", null, new { @class = "button" })

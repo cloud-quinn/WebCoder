@@ -253,6 +253,7 @@
     <Content Include="Scripts\getLineNums.js" />
     <Content Include="Scripts\initialise.js" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />
+    <None Include="Properties\PublishProfiles\Optimised.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />

@@ -784,7 +784,7 @@ function successDialog() {
                                             OK: function () {
                                                 $(this).dialog("close");
                                                 //return to research site at end of tutorial
-                                                window.location.href = "http://localhost:65399/Home/TutorialComplete";
+                                                window.location.href = "http://www.webcoder.org.uk/Home/TutorialComplete";
                                             }
                                         }
                                     });

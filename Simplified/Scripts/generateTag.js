@@ -1,7 +1,7 @@
 ﻿//var centre1 = 70;
 //var centre2 = 70;
 
-//"jQuery Set Cursor Position" function by Deering (2013) in "jQuery/HTML5 Input Focus and Cursor Positions". 
+//"jQuery Set Cursor Position" function by Deering (2013) in "jQuery/HTML5 Input Focus and Cursor Positions" [source code] Available from: http://www.sitepoint.com/jqueryhtml5-input-focus-cursor-positions/ (Accessed 14 May 2015)
 $.fn.setCaretPosition = function (caretPos) {
     this.each(function (index, elem) {
         if (elem.setSelectionRange) {
@@ -19,7 +19,7 @@ $.fn.setCaretPosition = function (caretPos) {
 
 };
 
-
+//some methods similar to Kester, S. (2008) jQuery Example: Inserting text with drag n’ drop [source code] Available from: http://skfox.com/2008/11/26/jquery-example-inserting-text-with-drag-n-drop/ (Accessed 2 May 2015)
 $(document).ready(function () {
     var characters = 0; //track number of characters currently in code
     window.code;

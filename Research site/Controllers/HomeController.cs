@@ -119,11 +119,11 @@ namespace Research_site.Controllers
             var UI = Request.Cookies["OptimisedUI"].Value;
             if (UI == "False")
             {
-                Response.Redirect("http://localhost:57178"); //Simplified
+                Response.Redirect("http://uis.webcoder.org.uk"); //Simplified
             }
             else
             {
-                Response.Redirect("http://localhost:57177"); //Optimised
+                Response.Redirect("http://uio.webcoder.org.uk"); //Optimised
             }
             return View();
         }

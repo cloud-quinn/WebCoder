@@ -4,28 +4,28 @@
     $("#instructions").hide();
     $("#e-mail").hide();
 
-    $("#agreement").click(function () {;
-        $("#declaration").dialog({
-            modal: true,
-            buttons: {
-                OK: function () {
-                    $(this).dialog("close");
-                }
-            }
+//    $("#agreement").click(function () {;
+//        $("#declaration").dialog({
+//            modal: true,
+//            buttons: {
+//                OK: function () {
+//                    $(this).dialog("close");
+//                }
+//            }
 
-        });
-    });
-    $("#instruct").click(function () {;
-        $("#instructions").dialog({
-            modal: true,
-            buttons: {
-                OK: function () {
-                    $(this).dialog("close");
-                }
-            }
+//        });
+//    });
+//    $("#instruct").click(function () {;
+//        $("#instructions").dialog({
+//            modal: true,
+//            buttons: {
+//                OK: function () {
+//                    $(this).dialog("close");
+//                }
+//            }
 
-        });
-    });
+//        });
+//    });
 });
 
 

@@ -1,8 +1,11 @@
-﻿$(document).ready(function () { 
+﻿$(document).ready(function () {
     if ($(window).width() < 1024) {
         //redirect to mobile site
-        window.location.href("http://localhost:6539/");
+        window.location.href="http://research.webcoder.org.uk/";
     }
+});
+
+    $(document).ready(function () { 
     $('#htmlResult').hide();
     $("#declaration").hide();
     $("#instructions").hide();
