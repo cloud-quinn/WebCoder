@@ -1,5 +1,9 @@
 ﻿
 var badges = new Array('<img src="/Content/images/1.png" />', '<img src="/Content/images/2.png" />', '<img src="/Content/images/3.png" />', '<img src="/Content/images/4.png" />', '<img src="/Content/images/5.png" />', '<img src="/Content/images/6.png" />', '<img src="/Content/images/7.png" />', '<img src="/Content/images/8.png" />', '<img src="/Content/images/9.png" />', '<img src="/Content/images/10.png" />', '<img src="/Content/images/11.png" />', '<img src="/Content/images/12.png" />');
+//keep track of characters for caret positioning
+var chars = 0;
+var aMove = false;
+var iMove = false;
 
 var currentBadge = 0;
 var missingP = "Your web page needs a paragraph of text, e.g. <p>Hello World</p>.";
@@ -245,11 +249,9 @@ setUpTask = function () {
 function checkCode() {
     var output = $("iframe.col-md-12").contents();
     getCode(); //update array of code contents    
-    var aMove = false;
-    var iMove = false;
 
-    //keep track of characters for caret positioning
-    var chars = 0;
+
+
 
     //HTML validation
     if (mode == "HTML") {

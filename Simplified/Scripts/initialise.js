@@ -1,8 +1,15 @@
-﻿
+﻿//IE bug fix provided by Infer-On (2015) "ie does not support 'includes' method" [source code] Available from: http://stackoverflow.com/questions/31221341/ie-does-not-support-includes-method (Accessed 07/07/2015)
+if (!String.prototype.includes) {
+    String.prototype.includes = function () {
+        'use strict';
+        return String.prototype.indexOf.apply(this, arguments) !== -1;
+    };
+}
+
 $(document).ready(function () {
     //WebCoder doesn't function on mobile devices, but the mobile landing page provides information about the research
     if ($(window).width() < 1024) {
-        window.location.href("http://localhost:6539/");
+        window.location.href="http://research.webcoder.org.uk";
     }
     window.thisActivity = 0;
     updateProgress(thisActivity);

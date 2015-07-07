@@ -2,7 +2,8 @@
 //var badges = new Array('<img src="http://shop.mlbadges.com/images/made/assets/uploads/product/17685/supastar-gp-y_500_468.png" />', '<img src="https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/medal1-512.png" />', '<img src="~/Content/images/test-badge1.png" />', '<img src="~/Content/images/test-badge2.png" />')
 
 var badges = new Array('<img src="/Content/images/1.png" />', '<img src="/Content/images/2.png" />', '<img src="/Content/images/3.png" />', '<img src="/Content/images/4.png" />', '<img src="/Content/images/5.png" />', '<img src="/Content/images/6.png" />', '<img src="/Content/images/7.png" />', '<img src="/Content/images/8.png" />', '<img src="/Content/images/9.png" />', '<img src="/Content/images/10.png" />', '<img src="/Content/images/11.png" />', '<img src="/Content/images/12.png" />');
-
+//keep track of characters for caret positioning
+var chars = 0;
 var currentBadge = 0;
 //var errorText = "That's not quite right.";
 var missingP = "Try dragging the text icon onto the code area to make a paragraph.";
@@ -265,9 +266,6 @@ function checkCode() {
         var h = 0;
         var a = 0;
         var img = 0;
-
-        //keep track of characters for caret positioning
-        var chars = 0;
 
         for (i = 0; i < line.length; i++) {
 

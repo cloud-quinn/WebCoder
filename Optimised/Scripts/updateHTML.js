@@ -11,7 +11,7 @@ $(document).ready(function () {
             window.lastCSS = cssCode;
             $('#htmlResult').empty();
             window.iframe = $('<iframe></iframe>');
-            iframe.attr('src', 'about:_blank')
+            iframe.attr('src', '/iframe.html')
             iframe.addClass('col-md-12');
             $('#htmlResult').append(iframe);
             iframe[0].contentDocument.write(htmlCode);

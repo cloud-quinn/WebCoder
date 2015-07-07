@@ -76,7 +76,7 @@ $(document).ready(function () {
         characters = 0;
         totalChars = 0;
         var lineHeight = ($(".lineNums").css("line-height"));
-        lineHeight = lineHeight.substring(0, 3);
+        lineHeight = lineHeight.substring(0, 2);
         var lineLengthArray = [];
         getCode();
         var yPos = event.pageY;
@@ -84,7 +84,7 @@ $(document).ready(function () {
         var topOfCode = position.top;
         lineOn = parseInt((yPos - topOfCode) / lineHeight);
         //lineOn = (yPos - topOfCode) / lineHeight;
-        if (lineOn >= 0 && lineOn <= lines) {
+        if (lineOn >= 0 && lineOn <= lines && line[lineOn]) {
             characters = line[lineOn].length;
         }
     });
