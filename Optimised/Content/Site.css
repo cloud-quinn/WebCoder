@@ -337,6 +337,9 @@ iframe {
     float: right;
 }
 
+#imghidden {
+    display: none;
+}
 
 .imgs {
     cursor: not-allowed;

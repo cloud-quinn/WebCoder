@@ -22,8 +22,8 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                <img class="img-responsive logo" src="~/Content/images/Research-logo.png" /><br />
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-8">
+                <a href="http://research.webcoder.org.uk"><img class="img-responsive logo" src="~/Content/images/Research-logo.png" /></a><br />
             </div>
         </div>
             <div class="row">
@@ -82,6 +82,11 @@
         <p>The <strong>test</strong> will ask you to write some code using the skills you learned in the tutorial. We will show you a sample solution at the end, but, don't forget, we are testing the system, not you, so don't worry about making mistakes - just have fun!</p>
     </div>
 
+    <div id="imghidden">
+        <img src="http://localhost:57177/hat.png" />
+        <img src="http://localhost:57177/mug.png" />
+        <img src="http://localhost:57177/t-shirt.png" />
+    </div>
     @*@Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)*@
