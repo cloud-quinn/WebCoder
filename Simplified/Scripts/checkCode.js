@@ -775,7 +775,9 @@ function successDialog() {
                             OK: function () {
                                 $(this).dialog("close");
                                 if (thisActivity == 21) {
+                                    animationEnd();
                                     $("#dialog-success").text("Congratulations, you completed the tutorial. We hope you enjoyed it.");
+                                    $("#dialog-success").append(c);
                                     $("#dialog-success").dialog({
                                         modal: true,
                                         buttons: {

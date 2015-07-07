@@ -236,6 +236,7 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="hat.png" />
     <Content Include="mug.png" />
+    <Content Include="Scripts\Animation.js" />
     <Content Include="Scripts\beautify.js" />
     <Content Include="Scripts\checkCode.js" />
     <Content Include="Scripts\code-file.txt" />

@@ -80,6 +80,7 @@ body {
     text-align: center !important;
     width: 99% !important;
     margin: 0 auto !important;
+    clear: both;
 }
 
 .color {

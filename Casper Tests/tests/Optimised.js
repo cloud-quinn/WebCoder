@@ -1,6 +1,6 @@
 //basic tests of functionality in Optimised Tutorial
 
-casper.test.begin('Optimised test', 11, function suite(test) {
+casper.test.begin('Optimised test', 17, function suite(test) {
 
     casper.start("http://localhost:57177");
     casper.viewport(1280, 1024);
@@ -68,9 +68,9 @@ casper.test.begin('Optimised test', 11, function suite(test) {
                 var populaterHTML = [];
                 for (i = 0; i < htmlStart.length; i++) {
                     populaterHTML += (htmlStart[i]);
-                    htmlLength++;
                 }
                 $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
             });
         });
         this.wait(1000, function () {
@@ -109,9 +109,9 @@ casper.test.begin('Optimised test', 11, function suite(test) {
                 var populaterHTML = [];
                 for (i = 0; i < htmlStart.length; i++) {
                     populaterHTML += (htmlStart[i]);
-                    htmlLength++;
                 }
                 $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
             });
             this.wait(1000, function () {
                 this.click('button#checkCode');
@@ -131,9 +131,9 @@ casper.test.begin('Optimised test', 11, function suite(test) {
                 var populaterHTML = [];
                 for (i = 0; i < htmlStart.length; i++) {
                     populaterHTML += (htmlStart[i]);
-                    htmlLength++;
                 }
                 $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
             });
         });
         this.wait(1000, function () {
@@ -170,6 +170,7 @@ casper.test.begin('Optimised test', 11, function suite(test) {
             this.click('button#checkCode');
         });
         this.wait(2000, function () {
+            test.assertTextExists("That'" + "s not quite right", 'Error dialog title appears');
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/link-error-dialog.png');
         });
         this.wait(2000, function () {
@@ -185,15 +186,15 @@ casper.test.begin('Optimised test', 11, function suite(test) {
                 var populaterHTML = [];
                 for (i = 0; i < htmlStart.length; i++) {
                     populaterHTML += (htmlStart[i]);
-                    htmlLength++;
                 }
                 $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
             });
         });
         this.wait(1000, function () {
             this.click('button#checkCode');
         });
-        this.wait(5000, function () {
+        this.wait(1000, function () {
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task3-success-dialog.png');
         });
         this.wait(1000, function () {
@@ -213,9 +214,9 @@ casper.test.begin('Optimised test', 11, function suite(test) {
                 var populaterHTML = [];
                 for (i = 0; i < htmlStart.length; i++) {
                     populaterHTML += (htmlStart[i]);
-                    htmlLength++;
                 }
                 $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
             });
         });
         this.wait(1000, function () {
@@ -243,19 +244,58 @@ casper.test.begin('Optimised test', 11, function suite(test) {
 
     casper.then(function () {
         this.wait(1000, function () {
+            this.click('button#checkCode');
+        });
+        this.wait(2000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/image-error-dialog.png');
+        });
+        this.wait(2000, function () {
+            this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
+        });
+    });
+
+    casper.then(function () {
+        this.wait(1000, function () {
             casper.evaluate(function () {
                 $("#htmlCode").val(" ");
-                var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<img src='mug.png' alt='coffee mug /'>", "\n", "</body>", "\n", "</html>"];
+                var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<img src='mug.png' alt='' />", "\n", "</body>", "\n", "</html>"];
                 var populaterHTML = [];
                 for (i = 0; i < htmlStart.length; i++) {
                     populaterHTML += (htmlStart[i]);
-                    htmlLength++;
                 }
                 $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
             });
         });
-        this.wait(2000, function () {
+        this.wait(1000, function () {
             this.click('button#checkCode');
+        });
+        this.wait(1000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/image-error-missing-alt-dialog.png');
+        });
+        this.wait(1000, function () {
+            this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
+        });
+    });
+
+    //task 5
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#htmlCode").val(" ");
+                var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<img src='mug.png' alt='coffee mug' />", "\n", "</body>", "\n", "</html>"];
+                var populaterHTML = [];
+                for (i = 0; i < htmlStart.length; i++) {
+                    populaterHTML += (htmlStart[i]);
+                }
+                $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+        });
+        this.wait(1000, function () {
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task5-success-dialog.png');
         });
         this.wait(1000, function () {
@@ -267,15 +307,108 @@ casper.test.begin('Optimised test', 11, function suite(test) {
         });
     });
 
+    //task 6
     casper.then(function () {
         this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#htmlCode").val(" ");
+                var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<h1>My code is all hat</h1>", "\n", "<img src='hat.png' alt='WebCoder hat' />", "\n", "</body>", "\n", "</html>"];
+                var populaterHTML = [];
+                for (i = 0; i < htmlStart.length; i++) {
+                    populaterHTML += (htmlStart[i]);
+                }
+                $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
+            });
+        });
+        this.wait(1000, function () {
             this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
         });
-        this.wait(2000, function () {
-            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/image-error-dialog.png');
+
+        this.wait(1000, function () {
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
         });
-        this.wait(2000, function () {
-            this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
+    });
+
+    //task 7
+    casper.then(function () {
+        this.wait(3000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/TEST.png');
+            casper.evaluate(function () {
+                $("#htmlCode").val(" ");
+                var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<h1>My heading</h1>", "\n", "<p>My paragraph</p>", "\n", "<img src='t-shirt.png' alt='WebCoder t-shirt' />", "\n", "<a href='http://www.webcoder.org.uk'>My link</a>", "\n", "</body>", "\n", "</html>"];
+                var populaterHTML = [];
+                for (i = 0; i < htmlStart.length; i++) {
+                    populaterHTML += (htmlStart[i]);
+                }
+                $("#htmlCode").val(populaterHTML);
+                return $("#htmlCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
+        });
+
+        this.wait(1000, function () {
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+        });
+
+        this.wait(1000, function () {
+            test.assertTextExists("You earned a badge", 'Badge appears');
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
+        });
+    });
+
+    //switch to CSS mode
+    casper.then(function () {
+        this.wait(4000, function () {
+        // "Next" button should appear initially
+        test.assertVisible('button#next');
+        });
+    });
+
+    casper.then(function () {
+        // click "Next" button 6 times to reach end of initial instructions
+        for (i = 0; i < 2; i++) {
+            this.click('button#next');
+        }
+    });
+
+    casper.then(function () {
+        //does the "Check Code" button appear once CSS instructions have been read?
+        test.assertVisible('button#checkCode');
+        this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-mode.png');
+    });
+
+    //task 8
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#cssCode").val(" ");
+                var css = ["p {", "\n", "font-family: Arial;", "\n", "}"];
+                var populaterCSS = [];
+                for (i = 0; i < css.length; i++) {
+                    populaterHTML += (css[i]);
+                }
+                $("#cssCode").val(populaterCSS);
+                return $("#cssCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-success.png');
+        });
+
+        this.wait(1000, function () {
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-p-badge.png');
+        });
+
+        this.wait(1000, function () {
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
         });
     });
 
