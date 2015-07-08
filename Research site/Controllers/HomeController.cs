@@ -107,7 +107,7 @@ namespace Research_site.Controllers
             }
             catch (NullReferenceException e)
             {
-                System.IO.File.WriteAllText("Log.txt", e.Message);
+                System.IO.File.WriteAllText("C:\\Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -206,7 +206,7 @@ namespace Research_site.Controllers
             }
             catch (NullReferenceException e)
             {
-                System.IO.File.WriteAllText("Log.txt", e.Message);
+                System.IO.File.WriteAllText("C:\\Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -236,7 +236,7 @@ namespace Research_site.Controllers
             }
             catch (NullReferenceException e)
             {
-                System.IO.File.WriteAllText("Log.txt", e.Message);
+                System.IO.File.WriteAllText("C:\\Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -271,7 +271,7 @@ namespace Research_site.Controllers
             }
             catch (NullReferenceException e)
             {
-                System.IO.File.WriteAllText("Log.txt", e.Message);
+                System.IO.File.WriteAllText("C:\\Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -290,7 +290,7 @@ namespace Research_site.Controllers
             }
             catch (NullReferenceException e)
             {
-                System.IO.File.WriteAllText("Log.txt", e.Message);
+                System.IO.File.WriteAllText("C:\\Log.txt", e.Message);
                 return View("Error");
             }
         }
