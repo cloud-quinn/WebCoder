@@ -53,10 +53,10 @@ $(document).ready(function () {
             $(".hoverable").hover(function () {
                 var hint = $(this).attr("data-tagtype");
                 if (mode == "CSS") {
-                    if ($(this).attr("id") == "pTag") hint = "p { }";
-                    else if ($(this).attr("id") == "h1Tag") hint = "h1 { }";
-                    else if ($(this).attr("id") == "aTag") hint = "a { }";
-                    else if ($(this).attr("id") == "imgTag") hint = "img { }";
+                    if ($(this).attr("id") == "pTag") { hint = "p { }"; }
+                    else if ($(this).attr("id") == "h1Tag") { hint = "h1 { }"; }
+                    else if ($(this).attr("id") == "aTag") { hint = "a { }"; }
+                    else if ($(this).attr("id") == "imgTag") { hint = "img { }"; }
                 }
                 $("#hint").text(hint);
                 $("#hint").show();
@@ -561,28 +561,28 @@ $(document).ready(function () {
                     window.canvas = document.createElement("canvas");
                     canvas.height = canvas.width = 180;
                     var box = canvas.getContext("2d");
-                    box.font = "1.1em Arial";
+                    //box.font = "1.1em Arial";
                     box.strokeText(margTop, centre1, 10);
                     box.moveTo(x1, y1);
                     box.lineTo(x2, y2);
                     box.stroke();
-                    box.font = "1.1em Arial";
+                    //box.font = "1.1em Arial";
                     box.strokeText(margRight, 140, 75);
                     box.moveTo(x3, y3);
                     box.lineTo(x4, y4);
-                    box.font = "1.1em Arial";
+                    //box.font = "1.1em Arial";
                     box.strokeText(margBottom, centre2, 147);
                     box.moveTo(x5, y5);
                     box.lineTo(x6, y6);
                     box.stroke();
-                    box.font = "1.1em Arial";
+                    //box.font = "1.1em Arial";
                     box.strokeText(margLeft, 5, 75);
                     box.moveTo(x7, y7);
                     box.lineTo(x8, y8);
                     box.stroke();
                     $("#dialog-marginChoose").append(canvas);
                 }
-              
+
                 if ($(ui.draggable).attr("data-tagtype") == "margin: ") {
                     var margTop = 0; //value set for top margin
                     var margRight = 0; // "" right margin

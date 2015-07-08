@@ -47,6 +47,7 @@ $(document).ready(function () {
 
 updateAll = function () {
     window.thisActivity++;
+    checkStage(); //draggable is removed in the final activities
     setUpTask(thisActivity);
     updateProgress(thisActivity);
     loadInstructions(thisActivity);
