@@ -105,8 +105,9 @@ namespace Research_site.Controllers
                     return View("Survey1Complete");
                 }
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
+                System.IO.File.WriteAllText("Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -203,8 +204,9 @@ namespace Research_site.Controllers
                     return View("Survey2Complete");
                 }
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
+                System.IO.File.WriteAllText("Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -232,8 +234,9 @@ namespace Research_site.Controllers
                 ViewBag.questiontext = question.QuestionText;
                 return View("Survey2Complete");
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
+                System.IO.File.WriteAllText("Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -266,8 +269,9 @@ namespace Research_site.Controllers
                 c.SaveChanges();
                 return null;
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
+                System.IO.File.WriteAllText("Log.txt", e.Message);
                 return View("Error");
             }
         }
@@ -284,8 +288,9 @@ namespace Research_site.Controllers
                 c.SaveChanges();
                 return null;
             }
-            catch (NullReferenceException)
+            catch (NullReferenceException e)
             {
+                System.IO.File.WriteAllText("Log.txt", e.Message);
                 return View("Error");
             }
         }
