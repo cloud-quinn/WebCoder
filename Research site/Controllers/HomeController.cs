@@ -64,38 +64,50 @@ namespace Research_site.Controllers
             return View();
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Survey1(FormCollection form)
         {
-            var survNum = form["survNum"];
-            var questNum = form["questNum"];
-            var answer = form["input"];
-            var c = new ResearchDB();
-            var UserID = Request.Cookies["UserID"].Value;
-            var surveyNum = int.Parse(survNum);
-            var questionNum = int.Parse(questNum);
-            var currentQuestion = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
-            c.SurveyAnswers.Add(new SurveyAnswer
+            try
             {
-                QuestionID = currentQuestion.QuestionID,
-                SurveyID = surveyNum,
-                UserID = int.Parse(UserID),
-                Value = answer
-            });
+                var survNum = form["survNum"];
+                var questNum = form["questNum"];
+                var answer = form["input"];
+                var c = new ResearchDB();
+                var UserID = Request.Cookies["UserID"].Value;
+                var surveyNum = int.Parse(survNum);
+                var questionNum = int.Parse(questNum);
+                var currentQuestion = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
+                c.SurveyAnswers.Add(new SurveyAnswer
+                {
+                    QuestionID = currentQuestion.QuestionID,
+                    SurveyID = surveyNum,
+                    UserID = int.Parse(UserID),
+                    Value = answer
+                });
 
-            c.SaveChanges();
-            if (questionNum <= 4)
-            {
-                questionNum++;
-                var question = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
-                ViewBag.questiontext = question.QuestionText;
-                ViewBag.questNum = questionNum;
-                ViewBag.survNum = surveyNum;
-                return View();
+                c.SaveChanges();
+                if (questionNum <= 4)
+                {
+                    questionNum++;
+                    var question = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
+                    ViewBag.questiontext = question.QuestionText;
+                    ViewBag.questNum = questionNum;
+                    ViewBag.survNum = surveyNum;
+                    return View();
+                }
+                else
+                {
+                    return View("Survey1Complete");
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                return View("Survey1Complete");
+                return View("Error");
             }
         }
 
@@ -146,70 +158,84 @@ namespace Research_site.Controllers
         [HttpPost]
         public ActionResult Survey2(FormCollection form)
         {
-            var survNum = form["survNum"];
-            var questNum = form["questNum"];
-            var answer = form["input"];
-            var c = new ResearchDB();
-            var UserID = Request.Cookies["UserID"].Value;
-            var surveyNum = int.Parse(survNum);
-            var questionNum = int.Parse(questNum);
-            var currentQuestion = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
-            c.SurveyAnswers.Add(new SurveyAnswer
+            try
             {
-                QuestionID = currentQuestion.QuestionID,
-                SurveyID = surveyNum,
-                UserID = int.Parse(UserID),
-                Value = answer
-            });
+                var survNum = form["survNum"];
+                var questNum = form["questNum"];
+                var answer = form["input"];
+                var c = new ResearchDB();
+                var UserID = Request.Cookies["UserID"].Value;
+                var surveyNum = int.Parse(survNum);
+                var questionNum = int.Parse(questNum);
+                var currentQuestion = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
+                c.SurveyAnswers.Add(new SurveyAnswer
+                {
+                    QuestionID = currentQuestion.QuestionID,
+                    SurveyID = surveyNum,
+                    UserID = int.Parse(UserID),
+                    Value = answer
+                });
 
-            c.SaveChanges();
-            if (questionNum < 10)
-            {
-                if (questionNum == 3 || questionNum == 4)
+                c.SaveChanges();
+                if (questionNum < 10)
                 {
-                    questionNum = 6;
-                }
-                else if (questionNum == 9)
-                {
-                    ViewBag.questiontext = "Do you have any other comments?";   
-                    return View("Comments");
+                    if (questionNum == 3 || questionNum == 4)
+                    {
+                        questionNum = 6;
+                    }
+                    else if (questionNum == 9)
+                    {
+                        ViewBag.questiontext = "Do you have any other comments?";
+                        return View("Comments");
+                    }
+                    else
+                    {
+                        questionNum++;
+                    }
+                    var question = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
+                    ViewBag.questiontext = question.QuestionText;
+                    ViewBag.questNum = questionNum;
+                    ViewBag.survNum = surveyNum;
+                    return View();
                 }
                 else
                 {
-                    questionNum++;
+                    return View("Survey2Complete");
                 }
-                var question = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
-                ViewBag.questiontext = question.QuestionText;
-                ViewBag.questNum = questionNum;
-                ViewBag.survNum = surveyNum;
-                return View();
             }
-            else
+            catch (NullReferenceException)
             {
-                return View("Survey2Complete");
+                return View("Error");
             }
         }
 
         public ActionResult Comments(FormCollection form)
         {
-            ViewBag.questiontext = "Do you have any other comments?";
-            var c = new ResearchDB();
-            var answer = form["input"];
-            int surveyNum = 2;
-            int questionNum = 10;
-            var UserID = Request.Cookies["UserID"].Value;
-            var question = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
-            c.SurveyAnswers.Add(new SurveyAnswer
+            try
             {
-                QuestionID = 10,
-                SurveyID = 2,
-                UserID = int.Parse(UserID),
-                Value = answer
-            });
-            c.SaveChanges();
-            SaveEndTime();
-            ViewBag.questiontext = question.QuestionText;
-            return View("Survey2Complete");
+                ViewBag.questiontext = "Do you have any other comments?";
+                var c = new ResearchDB();
+                var answer = form["input"];
+                int surveyNum = 2;
+                int questionNum = 10;
+                var UserID = Request.Cookies["UserID"].Value;
+                var question = c.Surveys.First(s => s.SurveyID == surveyNum).SurveyQuestions.First(q => q.QuestionID == questionNum);
+                c.SurveyAnswers.Add(new SurveyAnswer
+                {
+                    QuestionID = 10,
+                    SurveyID = 2,
+                    UserID = int.Parse(UserID),
+                    Value = answer
+                });
+                c.SaveChanges();
+                SaveEndTime();
+                ViewBag.questiontext = question.QuestionText;
+                return View("Survey2Complete");
+            }
+            catch (NullReferenceException)
+            {
+                return View("Error");
+            }
         }
 
         public ActionResult Survey2Complete()
@@ -228,26 +254,40 @@ namespace Research_site.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveScore(int Score, String [] Answers)
+        public ActionResult SaveScore(int Score, String[] Answers)
         {
-            var c = new ResearchDB();
-            var UserID = Request.Cookies["UserID"].Value;
-            var UserIDint = int.Parse(UserID);
-            var user = c.Users.Find(UserIDint);
-            user.Score = Score;
-            c.SaveChanges();
-            return null;
+            try
+            {
+                var c = new ResearchDB();
+                var UserID = Request.Cookies["UserID"].Value;
+                var UserIDint = int.Parse(UserID);
+                var user = c.Users.Find(UserIDint);
+                user.Score = Score;
+                c.SaveChanges();
+                return null;
+            }
+            catch (NullReferenceException)
+            {
+                return View("Error");
+            }
         }
 
         public ActionResult SaveEndTime()
         {
-            var c = new ResearchDB();
-            var UserID = Request.Cookies["UserID"].Value;
-            var UserIDint = int.Parse(UserID);
-            var user = c.Users.Find(UserIDint);
-            user.EndTime = DateTime.Now;
-            c.SaveChanges();
-            return null;
+            try
+            {
+                var c = new ResearchDB();
+                var UserID = Request.Cookies["UserID"].Value;
+                var UserIDint = int.Parse(UserID);
+                var user = c.Users.Find(UserIDint);
+                user.EndTime = DateTime.Now;
+                c.SaveChanges();
+                return null;
+            }
+            catch (NullReferenceException)
+            {
+                return View("Error");
+            }
         }
 
 

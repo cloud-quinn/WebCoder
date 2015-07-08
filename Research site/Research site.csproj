@@ -137,6 +137,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="hat.png" />
+    <Content Include="iframe.html" />
     <Content Include="mug.png" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -173,6 +174,7 @@
     <Content Include="Views\Home\PlainUI.cshtml" />
     <Content Include="Views\Home\TestComplete.cshtml" />
     <Content Include="Views\Home\TutorialComplete.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
