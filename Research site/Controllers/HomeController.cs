@@ -64,11 +64,6 @@ namespace Research_site.Controllers
             return View();
         }
 
-        public ActionResult Error()
-        {
-            return View();
-        }
-
         [HttpPost]
         public ActionResult Survey1(FormCollection form)
         {

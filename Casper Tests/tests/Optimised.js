@@ -2,7 +2,7 @@
 
 casper.test.begin('Optimised test', 17, function suite(test) {
 
-    casper.start("http://localhost:57177");
+    casper.start("http://uio.webcoder.org.uk");
     casper.viewport(1280, 1024);
 
     casper.then(function () {
