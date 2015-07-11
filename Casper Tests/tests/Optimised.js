@@ -1,6 +1,6 @@
 //basic tests of functionality in Optimised Tutorial
 
-casper.test.begin('Optimised test', 22, function suite(test) {
+casper.test.begin('Optimised test', 28, function suite(test) {
 
     casper.start("http://uio.webcoder.org.uk");
     casper.viewport(1280, 1024);
@@ -162,8 +162,6 @@ casper.test.begin('Optimised test', 22, function suite(test) {
         });
         test.assert(found.search("<a href='" + "'></a>") > -1);
     });
-
-    //SCREENSHOTS ISSUE STARTS HERE
 
     casper.then(function () {
         this.wait(1000, function () {
@@ -335,7 +333,6 @@ casper.test.begin('Optimised test', 22, function suite(test) {
     //task 7
     casper.then(function () {
         this.wait(3000, function () {
-            //this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/TEST.png');
             casper.evaluate(function () {
                 $("#htmlCode").val(" ");
                 var htmlStart = ["<!DOCTYPE HTML>", "\n", "<html>", "\n", "<head>", "\n", "</head>", "\n", "<body>", "\n", "\n", "<h1>My heading</h1>", "\n", "<p>My paragraph</p>", "\n", "<img src='t-shirt.png' alt='WebCoder t-shirt' />", "\n", "<a href='http://www.webcoder.org.uk'>My link</a>", "\n", "</body>", "\n", "</html>"];
@@ -385,9 +382,46 @@ casper.test.begin('Optimised test', 22, function suite(test) {
         this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-mode.png');
     });
 
+    //Test CSS icons
+    casper.then(function () {
+        // Try to create a p style by dropping the Text icon into the code area in CSS mode
+        this.mouse.down('#pTag');
+        this.mouse.move('#cssCode');
+        this.mouse.up('#cssCode');
+        this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/drag-drop-css-paragraph.png')
+        var found = casper.evaluate(function () {
+            return $("#cssCode").val();
+        });
+        test.assert(found.search('p {') > -1);
+    });
+
+    casper.then(function () {
+        // Try to add a font-family style for paragraphs by dropping the Font icon into the code area in CSS mode
+        this.mouse.down('#font');
+        this.mouse.move('#cssCode');
+        this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-drag.png')
+        this.mouse.up('#cssCode');
+        this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-select.png')
+        this.wait(1000, function () {
+            // Select a font
+            this.click('button.Impact');
+        });
+        this.wait(1000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-code.png');
+        });
+        var found = casper.evaluate(function () {
+            return $("#cssCode").val();
+        });
+        test.assert(found.search('font-family') > -1);
+    });
+
     //task 8
     casper.then(function () {
         this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#cssCode").val(" ");
+                return $("#cssCode").val();
+            });
             this.click('button#checkCode');
             test.assertTextExists("That" + "'s not quite right", 'CSS error dialog title appears');
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/no-CSS-error.png');
@@ -461,8 +495,8 @@ casper.test.begin('Optimised test', 22, function suite(test) {
         });
         this.wait(1000, function () {
             this.click('button#checkCode');
-            test.assertTextExists("Success", 'Success dialog title appears');
-            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-success.png');
+            test.assertTextExists("Success", 'CSS success dialog title appears');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task8-success-dialog.png');
         });
 
         this.wait(1000, function () {
@@ -474,6 +508,102 @@ casper.test.begin('Optimised test', 22, function suite(test) {
 
         this.wait(1000, function () {
             this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
+        });
+    });
+
+    //task 9
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#cssCode").val(" ");
+                var css = ["h1 {", "\n", "color: blue;", "\n", "}"];
+                var populaterCSS = [];
+                for (i = 0; i < css.length; i++) {
+                    populaterCSS += (css[i]);
+                }
+                $("#cssCode").val(populaterCSS);
+                return $("#cssCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task9-success-dialog.png');
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+        });
+        this.wait(1000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-color-badge.png');
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
+        });
+    });
+
+    //task 10
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#cssCode").val(" ");
+                var css = ["h1 {", "\n", "font-family: Trebuchet MS;", "\n" + "color: teal;", "\n" + "}", "\n", "\n", "p {" + "\n", "font-family: Georgia;", "\n", "color: purple;", "\n", "}"];
+                var populaterCSS = [];
+                for (i = 0; i < css.length; i++) {
+                    populaterCSS += (css[i]);
+                }
+                $("#cssCode").val(populaterCSS);
+                return $("#cssCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task10-success-dialog.png');
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+        });
+    });
+
+    //task 11
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#cssCode").val(" ");
+                var css = ["img {", "\n", "float: right;", "\n", "}"];
+                var populaterCSS = [];
+                for (i = 0; i < css.length; i++) {
+                    populaterCSS += (css[i]);
+                }
+                $("#cssCode").val(populaterCSS);
+                return $("#cssCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task11-success-dialog.png');
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+        });
+        this.wait(1000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-float-badge.png');
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
+        });
+    });
+
+    //task 12
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#cssCode").val(" ");
+                var css = ["img {", "\n", "float: left;", "\n", "}"];
+                var populaterCSS = [];
+                for (i = 0; i < css.length; i++) {
+                    populaterCSS += (css[i]);
+                }
+                $("#cssCode").val(populaterCSS);
+                return $("#cssCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task12-success-dialog.png');
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
         });
     });
 
