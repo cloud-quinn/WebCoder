@@ -23,8 +23,8 @@ namespace Research_site.Controllers
         public bool Count()
         {
             var c = new ResearchDB();
-            var UI1 = c.Users.Count(s => s.OptimisedUI == true);
-            var UI2 = c.Users.Count(s => s.OptimisedUI == false);
+            var UI1 = c.Users.Count(s => s.OptimisedUI == true && s.StartTime != s.EndTime);
+            var UI2 = c.Users.Count(s => s.OptimisedUI == false && s.StartTime != s.EndTime);
             if (UI1 > UI2)
             {
                 return false;
