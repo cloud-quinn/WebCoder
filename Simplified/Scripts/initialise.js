@@ -44,7 +44,7 @@ $(document).ready(function () {
     });
 
     //disable copy paste
-    //ref
+    //Varadharaj V. (2014) Disabling Cut, Copy, and Paste Operations in Textbox and Textarea [source code] Available from: http://www.kvcodes.com/2014/03/disabling-textbox-cut-copy-and-paste-operations/ (Accessed 5 May 2015)
     $(".codeArea").bind('copy paste cut', function (e) {
         e.preventDefault();
     });

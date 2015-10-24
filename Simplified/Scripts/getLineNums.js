@@ -21,24 +21,10 @@
 }
 
 $(document).ready(function () {
-
-    ////disable copy paste
-    //$(".codeArea").bind('copy paste cut', function (e) {
-    //    e.preventDefault();
-    //});
-
     var rows = $(".codeArea").attr('rows');
     //update line numbers when user presses a key
     $(".codeArea").keydown(function (e) {
         setLineNums();
-
-        
-        //if (e.which == "13" && lines >= rows) {
-        //    return false;
-        //    //    var toSplice = lines - $(".codeArea").attr('rows');
-        //    //    lineNums.splice(0, toSplice);
-            
-        //}
     }
 
     );

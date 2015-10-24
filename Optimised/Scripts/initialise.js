@@ -1,5 +1,5 @@
 ﻿
-//IE bug fix provided by Infer-On (2015) "ie does not support 'includes' method" [source code] Available from: http://stackoverflow.com/questions/31221341/ie-does-not-support-includes-method (Accessed 07/07/2015)
+//IE bug fix provided by Infer-On (2015) "ie does not support 'includes' method" [source code] Available from: http://stackoverflow.com/questions/31221341/ie-does-not-support-includes-method (Accessed 7 July 2015)
 if (!String.prototype.includes) {
     String.prototype.includes = function () {
         'use strict';

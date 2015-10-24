@@ -11,7 +11,7 @@ function toggleHTML() {
     }
 
 
-//CSS mode can be accessed from Activity 8 onwards
+//CSS mode can be accessed via its tab
 function toggleCSS() {
         window.mode = "CSS";
         $("#toggle-CSS").css("font-weight", "bold");

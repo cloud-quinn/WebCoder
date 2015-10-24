@@ -1,7 +1,4 @@
-﻿//var centre1 = 70;
-//var centre2 = 70;
-
-//"jQuery Set Cursor Position" function by Deering (2013) in "jQuery/HTML5 Input Focus and Cursor Positions" [source code] Available from: http://www.sitepoint.com/jqueryhtml5-input-focus-cursor-positions/ (Accessed 14 May 2015)
+﻿//"jQuery Set Cursor Position" function by Deering (2013) in "jQuery/HTML5 Input Focus and Cursor Positions" [source code] Available from: http://www.sitepoint.com/jqueryhtml5-input-focus-cursor-positions/ (Accessed 14 May 2015)
 $.fn.setCaretPosition = function (caretPos) {
     this.each(function (index, elem) {
         if (elem.setSelectionRange) {
@@ -83,7 +80,6 @@ $(document).ready(function () {
         var position = $(".codeArea").position();
         var topOfCode = position.top;
         lineOn = parseInt((yPos - topOfCode) / lineHeight);
-        //lineOn = (yPos - topOfCode) / lineHeight;
         if (lineOn >= 0 && lineOn <= lines) {
             characters = line[lineOn].length;
         }

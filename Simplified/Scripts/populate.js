@@ -23,6 +23,5 @@ populateCSS = function () {
         populaterCSS += "\n";
         cssLength++;
     }
-    //populaterCSS += "\n";
     $("#cssCode").val(populaterCSS);
 }

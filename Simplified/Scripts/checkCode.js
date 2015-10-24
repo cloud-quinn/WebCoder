@@ -545,9 +545,6 @@ function checkCode() {
 
                 }
 
-                //else {
-                //    $("#dialog-text").text(errorText + " " + missingPstyle);
-                //}
             }
 
             //validate A styles
@@ -811,7 +808,6 @@ function failureDialog() {
         buttons: {
             OK: function () {
                 $(this).dialog("close");
-                //if (mode == "HTML" && (aMove == true || iMove == true)) {
                 if (mode == "HTML") {
                     $("#htmlCode").setCaretPosition(chars + 2);
                 }

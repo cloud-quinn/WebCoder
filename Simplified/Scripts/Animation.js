@@ -69,7 +69,6 @@ function animationEnd() {
 
     function writeMessage() {
         ctx.font = "bold 22pt Georgia";
-        //ctx.fillStyle = "#b98f2a";
         ctx.fillStyle = "#ced011";
         ctx.strokeStyle = "#000";
         var letters = ["T", "u", "t", "o", "r", "i", "a", "l", "C", "o", "m", "p", "l", "e", "t", "e", "!"];

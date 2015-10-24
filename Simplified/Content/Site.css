@@ -7,14 +7,9 @@
     margin: 0 !important;
 }
 
-#badgeImg img{
+#badgeImg img {
     width: 90%;
     margin: 0 auto !important;
-}
-
-canvas {
-    margin: 1em 0 0 2em;
-    float: left;
 }
 
 body {
@@ -40,6 +35,11 @@ body {
     color: #fff;
 }
 
+canvas {
+    margin: 1em 0 0 2em;
+    float: left;
+}
+
 #checkCode {
     width: 8em;
     margin: 10px 0 0 15px;
@@ -47,7 +47,6 @@ body {
 }
 
 .codeArea {
-    /*height: 25.5em;*/
     font-family: 'Courier New', 'Consolas', sans-serif;
     font-size: 1.25em;
     border: 2px solid #a4a1a1;
@@ -57,30 +56,6 @@ body {
     padding: 0.5em 1em;
     margin: 0 0 0 0.85em;
     overflow: scroll;
-}
-
-.ui-dialog {
-    background-color: rgb(228,228,228);
-    font-size: 1em;
-    font-family: 'Segoe UI', sans-serif;
-    line-height: 2em;
-    border-radius: 4px 4px;
-    padding: 1em 1em;
-    float: left;
-    z-index: 100;
-}
-
-.ui-dialog-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-}
-
-.ui-widget-header, .ui-dialog-buttonset, .ui-dialog-title, .ui-dialog-titlebar {
-    text-align: center !important;
-    width: 99% !important;
-    margin: 0 auto !important;
-    clear: both;
 }
 
 #colors {
@@ -176,10 +151,10 @@ body {
     z-index: 100;
 }
 
-    #dialog-colorChoose button, #dialog-fontChoose button {
-        background: none !important;
-        border: none !important;
-    }
+#dialog-colorChoose button, #dialog-fontChoose button {
+    background: none !important;
+    border: none !important;
+}
 
 .font, .float {
     background: none !important;
@@ -292,11 +267,7 @@ header, footer, nav, section {
     display: block;
 }
 
-
-
 .float {
-    /*display: inline;*/
-    /*clear: both;*/
     padding: 1em 1em;
     border: 1px solid #000;
 }
@@ -308,10 +279,6 @@ header, footer, nav, section {
 .right {
     float: right;
 }
-
-/*#feedback {
-margin: 0 0 0 5em;
-}*/
 
 h1 {
     font-size: 2em !important;
@@ -330,10 +297,8 @@ h1, h3 {
 }
 
 #htmlResult {
-    /*padding: 0 0 0 2.5em;*/
     border-radius: 5px 5px;
     border: 2px solid #a4a1a1;
-    /*height: 32em;*/
 }
 
 .icon img {
@@ -349,12 +314,10 @@ iframe {
     height: 30em;
 }
 
-
 iframe {
     border-style: none;
     float: right;
 }
-
 
 .imgs {
     cursor: not-allowed;
@@ -365,18 +328,10 @@ iframe {
     padding: 0 0 0 2%;
 }
 
-
-
 .imgs p {   
     text-align: center;
     font-size: 0.8em;
 }
-
-/*.imgs p, .imgs img {
-    width: 70%;
-
-    /*margin: 0 0 0 1em;
-}*/
 
 .lineNums {
     display: none;    
@@ -384,27 +339,11 @@ iframe {
     line-height: 163%;
 }
 
-/*.lineNums {
-    height: 29.75em;
-    background-color: #efefef;
-    border-top: 1px solid #808080;
-    border-left: 1px solid #808080;
-    border-bottom: 1px solid #808080;
-    max-width: 40px;
-    text-align: right;
-    margin: 0 0 0 15px;
-    padding: 0.2em 0 0 0;
-    font-family: 'Courier New', 'Consolas', sans-serif;
-
-    color: #808080;
-}*/
-
 .logo {
     width: 60%;
 }
 
 .margin {
-    /*margin: 0.25em 1em;*/
     padding: 0 !important;
     line-height: 15px;
     width: 18px;
@@ -414,7 +353,6 @@ iframe {
     border: none;
     background: none;
     height: 70px;
-    /*font-size: 1.8em;*/
     color: #1E78C0;
 }
 
@@ -428,46 +366,45 @@ height: 25px;
 margin: 0 0 3px 0;
 }
 
-.topM {
-    position: absolute;
-    top: 56px;
-}
-
-.bottomM {
-    position: absolute;
-    top: 198px;
-}
-
-.rightM {
-    position: absolute;
-    left: 180px;
-}
-
-.leftM {
-    position: absolute;
-    left: 36px;
-}
-
-.plus {
-    left: 126px;
-}
-
-.minus {
-    left: 88px;
-}
-
-.plus1 {
-    top: 104px;
-}
-
-.minus1 {
-    top: 142px;
-}
-
 p {
-    /*margin: 0.5em 0 0 0.4em;*/
     font-size: 1.1em;
 }
+
+    .plus {
+        left: 126px;
+    }
+
+    .plus1 {
+        top: 104px;
+    }
+
+    .minus {
+        left: 88px;
+    }
+
+    .minus1 {
+        top: 142px;
+    }
+
+    .topM {
+        position: absolute;
+        top: 56px;
+    }
+
+    .bottomM {
+        position: absolute;
+        top: 198px;
+    }
+
+    .rightM {
+        position: absolute;
+        left: 180px;
+    }
+
+    .leftM {
+        position: absolute;
+        left: 36px;
+    }
 
 progress {
     -webkit-appearance: none;
@@ -491,26 +428,6 @@ progress {
         padding: 2px;
     }
 
-/*.table2 {
-    display: table !important;
-    width: 30% !important;
-}
-
-.row2 {
-    display: table-row !important;
-    width: 50% !important;
-}
-
-.cell2 {
-    display: table-cell !important;
-    width: 25% !important;
-}
-
-
-.titles {
-    margin-left: 1.5em;
-}*/
-
 .toggle-tab, #checkCode {
     font-size: 1.2em;
     border: 1px solid #808080;
@@ -526,27 +443,30 @@ progress {
 .ui-widget {
 }
 
-
-
-/*.top-table {
-    display: table !important;
-    width: 100% !important;
+.ui-dialog {
+    background-color: rgb(228,228,228);
+    font-size: 1em;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 2em;
+    border-radius: 4px 4px;
+    padding: 1em 1em;
+    float: left;
+    z-index: 100;
 }
 
-.top-row {
-    display: table-row !important;
-    width: 90% !important;
+.ui-dialog-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
 }
 
-.top-cell {
-    display: table-cell !important;
-    width: 30% !important;
+.ui-widget-header, .ui-dialog-buttonset, .ui-dialog-title, .ui-dialog-titlebar {
+    text-align: center !important;
+    width: 99% !important;
+    margin: 0 auto !important;
+    clear: both;
 }
 
-    .top-cell img {
-        margin: 0 0.5em 0.5em 0;
-    }
-*/
 /* Styles for basic forms
 -----------------------------------------------------------*/
 fieldset {

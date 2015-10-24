@@ -1,6 +1,6 @@
 //basic tests of functionality in Optimised Tutorial
 
-casper.test.begin('Optimised test', 28, function suite(test) {
+casper.test.begin('Optimised test', 30, function suite(test) {
 
     casper.start("http://uio.webcoder.org.uk");
     casper.viewport(1280, 1024);
@@ -397,22 +397,28 @@ casper.test.begin('Optimised test', 28, function suite(test) {
 
     casper.then(function () {
         // Try to add a font-family style for paragraphs by dropping the Font icon into the code area in CSS mode
-        this.mouse.down('#font');
-        this.mouse.move('#cssCode');
-        this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-drag.png')
-        this.mouse.up('#cssCode');
-        this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-select.png')
-        this.wait(1000, function () {
-            // Select a font
-            this.click('button.Impact');
+        this.wait(2000, function () {
+            //casper.evaluate(function () {
+            //    $("#cssCode").val(" ");
+            //    return $("#cssCode").val();
+            //});
+            this.mouse.down('#font');
+            this.mouse.move('#cssCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-drag.png')
+            this.mouse.up('#cssCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-select.png')
+            this.wait(2000, function () {
+                // Select a font
+                this.click('button.Impact');
+            });
+            this.wait(2000, function () {
+                this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-code.png');
+            });
+            var found = casper.evaluate(function () {
+                return $("#cssCode").val();
+            });
+            test.assert(found.search('font-family') > -1);
         });
-        this.wait(1000, function () {
-            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-font-code.png');
-        });
-        var found = casper.evaluate(function () {
-            return $("#cssCode").val();
-        });
-        test.assert(found.search('font-family') > -1);
     });
 
     //task 8
@@ -513,25 +519,48 @@ casper.test.begin('Optimised test', 28, function suite(test) {
 
     //task 9
     casper.then(function () {
+        // Try to add a color style for headings by dropping the Font icon into the code area in CSS mode
         this.wait(1000, function () {
-            casper.evaluate(function () {
-                $("#cssCode").val(" ");
-                var css = ["h1 {", "\n", "color: blue;", "\n", "}"];
-                var populaterCSS = [];
-                for (i = 0; i < css.length; i++) {
-                    populaterCSS += (css[i]);
-                }
-                $("#cssCode").val(populaterCSS);
-                return $("#cssCode").val();
-            });
+            //casper.evaluate(function () {
+            //    $("#cssCode").val(" ");
+            //    return $("#cssCode").val();
+            //});
         });
         this.wait(1000, function () {
+            this.mouse.down('#h1Tag');
+            this.mouse.move('#cssCode');
+            this.mouse.up('#cssCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/drag-drop-css-heading.png')
+        });
+        this.wait(2000, function () {
+            this.mouse.down('#color');
+            this.mouse.move('#cssCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-color-drag.png')
+            this.mouse.up('#cssCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-color-select.png')
+        });
+        this.wait(2000, function () {
+            // Select a color
+            this.click('button.blue');
+        });
+        this.wait(2000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-color-code.png');
+        });
+        var found = casper.evaluate(function () {
+            return $("#cssCode").val();
+        });
+        test.assert(found.search('color') > -1);
+    });
+
+
+    casper.then(function () {
+        this.wait(2000, function () {
             this.click('button#checkCode');
             test.assertTextExists("Success", 'Success dialog title appears');
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task9-success-dialog.png');
             this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
         });
-        this.wait(1000, function () {
+        this.wait(2000, function () {
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-color-badge.png');
             this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
         });
@@ -539,7 +568,7 @@ casper.test.begin('Optimised test', 28, function suite(test) {
 
     //task 10
     casper.then(function () {
-        this.wait(1000, function () {
+        this.wait(2000, function () {
             casper.evaluate(function () {
                 $("#cssCode").val(" ");
                 var css = ["h1 {", "\n", "font-family: Trebuchet MS;", "\n" + "color: teal;", "\n" + "}", "\n", "\n", "p {" + "\n", "font-family: Georgia;", "\n", "color: purple;", "\n", "}"];
@@ -551,28 +580,43 @@ casper.test.begin('Optimised test', 28, function suite(test) {
                 return $("#cssCode").val();
             });
         });
-        this.wait(1000, function () {
+        this.wait(2000, function () {
             this.click('button#checkCode');
             test.assertTextExists("Success", 'Success dialog title appears');
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task10-success-dialog.png');
             this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+            this.click('div[aria-describedby=dialog-failure] .ui-dialog-buttonset button');
         });
     });
 
     //task 11
     casper.then(function () {
-        this.wait(1000, function () {
-            casper.evaluate(function () {
-                $("#cssCode").val(" ");
-                var css = ["img {", "\n", "float: right;", "\n", "}"];
-                var populaterCSS = [];
-                for (i = 0; i < css.length; i++) {
-                    populaterCSS += (css[i]);
-                }
-                $("#cssCode").val(populaterCSS);
-                return $("#cssCode").val();
-            });
+        this.wait(2000, function () {
+            this.mouse.down('#imgTag');
+            this.mouse.move('#cssCode');
+            this.mouse.up('#cssCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/drag-drop-css-img.png')
         });
+        // Try to add a float style for images by dropping the Position icon into the code area in CSS mode
+        this.wait(2000, function () {
+            this.mouse.down('#float');
+            this.mouse.move('#cssCode');
+            this.mouse.up('#cssCode');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-float-drag.png')
+        });
+        this.wait(2000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-float-select.png')
+            // Select a float
+            this.click('button.float.right');
+        });
+        this.wait(2000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/css-float-code.png');
+        });
+        var found = casper.evaluate(function () {
+            return $("#cssCode").val();
+        });
+    });
+    casper.then(function () {
         this.wait(1000, function () {
             this.click('button#checkCode');
             test.assertTextExists("Success", 'Success dialog title appears');
@@ -604,6 +648,32 @@ casper.test.begin('Optimised test', 28, function suite(test) {
             test.assertTextExists("Success", 'Success dialog title appears');
             this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task12-success-dialog.png');
             this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+        });
+    });
+
+    //task 13
+    casper.then(function () {
+        this.wait(1000, function () {
+            casper.evaluate(function () {
+                $("#cssCode").val(" ");
+                var css = ["h1 {", "\n", "margin: 50px 0 0 0;", "\n", "}"];
+                var populaterCSS = [];
+                for (i = 0; i < css.length; i++) {
+                    populaterCSS += (css[i]);
+                }
+                $("#cssCode").val(populaterCSS);
+                return $("#cssCode").val();
+            });
+        });
+        this.wait(1000, function () {
+            this.click('button#checkCode');
+            test.assertTextExists("Success", 'Success dialog title appears');
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/task13-success-dialog.png');
+            this.click('div[aria-describedby=dialog-success] .ui-dialog-buttonset button');
+        });
+        this.wait(1000, function () {
+            this.capture('C:/Users/C/Documents/MSc Dissertation/mscstuff/Casper Tests/CSS-float-badge.png');
+            this.click('div[aria-describedby=dialog-badge] .ui-dialog-buttonset button');
         });
     });
 

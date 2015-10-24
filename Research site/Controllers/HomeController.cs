@@ -17,26 +17,27 @@ namespace Research_site.Controllers
 
         public ActionResult Declaration()
         {
-            return View();
+            return View(); //User reads agreement to participate
         }
 
         public bool Count()
         {
             var c = new ResearchDB();
-            var UI1 = c.Users.Count(s => s.OptimisedUI == true && s.StartTime != s.EndTime);
-            var UI2 = c.Users.Count(s => s.OptimisedUI == false && s.StartTime != s.EndTime);
+            var UI1 = c.Users.Count(s => s.OptimisedUI == true && s.StartTime != s.EndTime); //check database records for completed sessions using UIO
+            var UI2 = c.Users.Count(s => s.OptimisedUI == false && s.StartTime != s.EndTime); //check database records for completed sessions using UIS
             if (UI1 > UI2)
             {
-                return false;
+                return false; //send this User to UIS
             }
             else
             {
-                return true;
+                return true; //send this User to UIO
             }
         }
 
         public ActionResult StartResearch()
         {
+            //User has agreed to participate: create new record for them in db.
             var c = new ResearchDB();
             var u = new User
             {
@@ -49,23 +50,23 @@ namespace Research_site.Controllers
             c.SaveChanges();
             var ID = u.UserID;
             var UI = u.OptimisedUI;
-            Response.Cookies.Add(new HttpCookie("UserID", ID.ToString()));
-            Response.Cookies.Add(new HttpCookie("OptimisedUI", UI.ToString()));
+            Response.Cookies.Add(new HttpCookie("UserID", ID.ToString())); //track User throughout journey by ID
+            Response.Cookies.Add(new HttpCookie("OptimisedUI", UI.ToString())); //assign User to correct tutorial
             return View();
         }
 
         public ActionResult Survey1()
         {
             var c = new ResearchDB();
-            var question = c.Surveys.First(s => s.SurveyID == 1).SurveyQuestions.First(q => q.QuestionID == 1);
-            ViewBag.questiontext = question.QuestionText;
+            var question = c.Surveys.First(s => s.SurveyID == 1).SurveyQuestions.First(q => q.QuestionID == 1); //get survey questions from db
+            ViewBag.questiontext = question.QuestionText; //write questions to screen using ViewBag
             ViewBag.survNum = 1;
             ViewBag.questNum = 1;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Survey1(FormCollection form)
+        public ActionResult Survey1(FormCollection form) //post back form data and save to db
         {
             try
             {
@@ -127,11 +128,11 @@ namespace Research_site.Controllers
             var UI = Request.Cookies["OptimisedUI"].Value;
             if (UI == "False")
             {
-                Response.Redirect("http://uis.webcoder.org.uk"); //Simplified
+                Response.Redirect("http://uis.webcoder.org.uk"); //Go to UIS (Simplified tutorial)
             }
             else
             {
-                Response.Redirect("http://uio.webcoder.org.uk"); //Optimised
+                Response.Redirect("http://uio.webcoder.org.uk"); //Go to UIO (Optimised tutorial)
             }
             return View();
         }
@@ -290,6 +291,10 @@ namespace Research_site.Controllers
             }
         }
 
+        public ActionResult Error()
+        {
+            return View();
+        }
 
     }
 }
